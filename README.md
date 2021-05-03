@@ -1,7 +1,7 @@
 # Angel Squad Editor
 
   ## Description
-  - Angel Squad Editor (ASE) is the content editor for the game Angel Squad (https://github.com/pmmbb2/Angel-Squad-Editor)
+  - Angel Squad Editor (ASE) is the content editor for the game Angel Squad (https://github.com/pmmbb2/AngelSquad---Android)
   - made with vanilla JS, html, css, jQuery, PHP
  
   ## Getting Started
