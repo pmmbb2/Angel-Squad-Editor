@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "angel-M.angelo-boxing.sprt",
+    "src": "game_assets/images/angel-M.angelo-boxing-720x80.png?t=1586549237",
+    "width": 80,
+    "height": 80,
+    "positions": [[0,0],[80,0],[160,0],[240,0],[320,0],[400,0],[480,0],[560,0],[640,0],[320,0]],
+    "frame": 0,
+    "frameMax": 9,
+    "frameTicker": 0,
+    "nextFrameAt": 5
+}

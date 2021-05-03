@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "snake-crawl-down.sprt",
+    "src": "game_assets/images/snake-crawl-down-384x92.png?t=1587491648",
+    "width": 48,
+    "height": 92,
+    "positions": [[0,0],[48,0],[96,0],[144,0],[192,0],[240,0],[288,0],[336,0]],
+    "frame": 0,
+    "frameMax": 7,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

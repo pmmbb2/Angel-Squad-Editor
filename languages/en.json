@@ -1,0 +1,32 @@
+[
+	{
+		"name": "OBJ_LBL_DESTROYALLBRICKS",
+		"value": "Destroy all bricks"
+	},
+	{
+		"name": "OBJ_LBL_MINCOMBOS",
+		"value": "Minimum hit combos"
+	},
+	{
+		"name": "OBJ_LBL_TIMER",
+		"value": "Time limit"
+	},
+	{
+		"name": "OBJ_LBL_TARGETS",
+		"value": "Kill / Remove targets"
+	},
+	{
+		"name": "OBJ_LBL_ESCORTEES",
+		"value": "Escort to target destination"
+	},
+	{
+		"name": "OBJ_MSG_SUCCESS",
+		"value": "Objective complete"
+	},
+	{
+		"name": "OBJ_MSG_FAILURE",
+		"value": "Objective failed"
+	}
+	
+	
+]

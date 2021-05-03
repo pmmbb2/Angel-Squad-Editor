@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "shark-64x30-groggy.sprt",
+    "src": "game_assets/images/shark-64x30-groggy-spritesheet.png?t=1594857285",
+    "width": 64,
+    "height": 30,
+    "positions": [[0,0],[64,0],[128,0],[192,0]],
+    "frame": 0,
+    "frameMax": 3,
+    "frameTicker": 0,
+    "nextFrameAt": 8
+}

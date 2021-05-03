@@ -1,0 +1,37 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE project PUBLIC "-//audacityproject-1.3.0//DTD//EN" "http://audacity.sourceforge.net/xml/audacityproject-1.3.0.dtd" >
+<project xmlns="http://audacity.sourceforge.net/xml/" projname="heavenly-music_data" version="1.3.0" audacityversion="2.3.3" sel0="28.2855000000" sel1="28.2855000000" vpos="0" h="0.0000000000" zoom="23.1213872832" rate="24000.0" snapto="off" selectionformat="hh:mm:ss + milliseconds" frequencyformat="Hz" bandwidthformat="octaves">
+	<tags/>
+	<wavetrack name="heavenly-music" isSelected="1" height="150" minimized="0" channel="0" linked="1" mute="0" solo="0" rate="24000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="713106">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808652.au" len="256954" min="-0.498855" max="0.467497" rms="0.093303"/>
+				</waveblock>
+				<waveblock start="256954">
+					<simpleblockfile filename="e0808cb5.au" len="262144" min="-0.394475" max="0.38989" rms="0.088867"/>
+				</waveblock>
+				<waveblock start="519098">
+					<simpleblockfile filename="e0808b8c.au" len="194008" min="-0.373142" max="0.373213" rms="0.08386"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+	<wavetrack name="heavenly-music" isSelected="1" height="150" minimized="0" channel="1" linked="0" mute="0" solo="0" rate="24000" gain="1.0" pan="0.0" colorindex="0">
+		<waveclip offset="0.00000000" colorindex="0">
+			<sequence maxsamples="262144" sampleformat="262159" numsamples="713106">
+				<waveblock start="0">
+					<simpleblockfile filename="e0808e54.au" len="256954" min="-0.465198" max="0.492955" rms="0.102935"/>
+				</waveblock>
+				<waveblock start="256954">
+					<simpleblockfile filename="e0808597.au" len="262144" min="-0.396542" max="0.407351" rms="0.098439"/>
+				</waveblock>
+				<waveblock start="519098">
+					<simpleblockfile filename="e08084a8.au" len="194008" min="-0.355527" max="0.34082" rms="0.078451"/>
+				</waveblock>
+			</sequence>
+			<envelope numpoints="0"/>
+		</waveclip>
+	</wavetrack>
+</project>

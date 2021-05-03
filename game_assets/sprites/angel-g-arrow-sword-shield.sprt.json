@@ -1,0 +1,13 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "angel-g-arrow-sword-shield.sprt",
+    "src": "game_assets/images/angel-G-arrow-sword-shield-320x105.png?t=1609338197",
+    "width": 80,
+    "height": 105,
+    "positions": [[0,0],[80,0],[0,0],[160,0],[0,0],[240,0]],
+    "frame": 0,
+    "frameMax": 5,
+    "frameTicker": 0,
+    "nextFrameAt": 6,
+    "hitboxes": ""
+}

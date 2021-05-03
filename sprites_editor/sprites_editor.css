@@ -1,0 +1,194 @@
+
+		/*
+			SPRITE EDITOR
+			#sprt_ed
+		*/
+		
+		
+		
+		#sprites_editor{
+			z-index: 4;			
+		}
+			
+		#sprites_editor.customWindow, #sprites_editor.customWindow>*{
+			overflow: auto;
+		}	
+        
+        .hitbox:after{
+        	content: 'hitbox'; 
+        	position: absolute;
+            margin-top: -1.5em;
+            margin-left: 2em;        
+            font-size: 0.7em;          
+            width: 3.5em;
+            text-align: center;
+            display: block;
+            background-color: #000;
+            color: #fff;    
+        }
+
+		.resetHB{
+			position: absolute;
+            margin-top: -1em; 
+			padding: 0 !important; 
+			width: 0.9em !important;  
+            height: 0.9em !important;            
+		}
+        
+        .hitbox{
+        	border: 1px solid #000
+        }    
+
+			#sprt_ed_wrapper{
+				
+				height: 100%;
+			}
+			/* HIDES/DISPLAY images/sprites selector */
+			a#toggleSprtImgSelectorBtn {
+			   position: absolute;
+			   right: 1em;
+			   top: 1em;
+			   margin-right: 1em;
+			   margin-top: 1em
+			}
+			#sprt_ed_container_image{
+			
+			}
+			
+			#images_list_container{
+				/* top: 3.5em;*/
+				position: relative;
+				height: 600px;
+				overflow-y: scroll;
+				width: 600px;
+				overflow-x: scroll;
+			}
+			
+			ul.images_list{
+			}
+						
+			ul.images_list li{
+				   list-style:none;
+			}
+			
+			#sprt_ed_container_frames{
+			
+			}
+			
+			#sprt_ed_container_sprite{
+			 /*width: 50%;*/
+			}
+
+#sprt-ed-tabs{
+	 position: absolute;
+	 right: 0;
+	 /* height: 100%; */
+	 top: 1.5em;
+}
+
+#sprt-ed-tabs > div{
+	width:100% !important;
+	background: #999;
+}
+
+#sprt-ed-tabs > div.ui-tabs-panel {
+    padding: 1em 0em !important;
+    padding: 1em 0em !important;
+   
+    width: 100%;
+    /* width: 393px !important; */
+}
+
+#sprt-ed-tabs > #sprt-ed-tabs-2.ui-tabs-panel{
+	width: 400px !important;   
+}
+
+div#sprt-ed-tabs .ui-tabs-nav{
+    padding: 0;
+}
+/*
+#sprites_list_container{
+	position: absolute;
+	height: 400px;	
+	overflow: scroll;	
+	background-color: #999;
+}
+*/
+/*#sprites_list_container,
+.popupSearchContainer{	
+	height: 90%;
+    width: 90%;    	
+	overflow-y: scroll;
+    overflow-x: hidden;		
+	background-color: #999;
+}*/
+
+
+#sprites_list{
+	
+	/*! overflow: scroll; */
+	height: 180%;
+}
+
+#spritePreviewContainer{
+  position: relative;
+  top: 0em;
+  left: 0;
+  background-color: lime;
+  /* width: 200px; */
+  min-height: 200px;
+  display: block;
+  border: 1px solid cyan;
+}
+
+.delete_sprite{
+  float: right;
+  display: block;
+  width: 2em;
+  height: 2em;
+  background-color: red;
+  text-align: center;
+  text-decoration: none;
+	position: relative;
+	margin-top: -2em
+}
+
+
+/*
+	EYE -- begin
+*/
+.eye {
+  margin: 0;
+  width: 13px;
+  height: 13px;
+  border: solid 1px #000;
+  border-radius:  75% 15%;
+  position: relative;
+  transform: rotate(45deg);
+ 
+}
+.eye:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border: solid 1px #000;
+  border-radius: 50%;
+  left: 3px;
+  top: 3px;
+  background-color: #0f0
+}
+
+.preview_sprite{
+    float: left;
+    clear: both;
+    position: relative;
+    top: -0.5em;
+    left: 0.5em;
+    background-color: #fff;
+    border: 1px solid #000;
+    padding: 0.2em;
+    border-radius: 1em;
+
+}

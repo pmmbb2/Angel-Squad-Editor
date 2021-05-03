@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "angel-GABRIELLE-sword-shield.sprt",
+    "src": "game_assets/images/ANGEL-GABRIELLE-SWORD-SHIELD-320x103.png?t=1587252696",
+    "width": 80,
+    "height": 103,
+    "positions": [[0,0],[80,0],[160,0],[240,0]],
+    "frame": 0,
+    "frameMax": 3,
+    "frameTicker": 0,
+    "nextFrameAt": 4
+}

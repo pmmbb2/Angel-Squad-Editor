@@ -1,0 +1,21 @@
+{
+    "brickwall_name": "redhead.brickwall",
+    "wallBrickMap": "[-1,-1,12,12,12,12,-1,-1,-1,12,12,12,12,12,12,-1,-1,12,7,12,12,7,12,-1,12,12,12,12,12,12,12,12,12,11,6,11,11,6,11,12,12,12,11,12,12,11,12,12,-1,12,11,12,12,11,12,-1,-1,12,12,12,12,12,12,-1]",
+    "wallBrickMapEnergy": "[0,0,10,10,10,10,0,0,0,10,10,10,10,10,10,0,0,10,-1,10,10,-1,10,0,10,10,10,10,10,10,10,10,10,2,-1,2,2,-1,2,10,10,10,2,10,10,2,10,10,0,10,2,10,10,2,10,0,0,10,10,10,10,10,10,0]",
+    "description": "",
+    "brickWidth": 50,
+    "brickHeight": 50,
+    "brickRowCount": 8,
+    "brickColumnCount": 8,
+    "brickPadding": "",
+    "bricksFillStyle": "",
+    "brickWallSkin": "color",
+    "bricksEqualTiles": "same",
+    "brickWallImage": "",
+    "tileWidth": 50,
+    "tileHeight": 50,
+    "mapRows": 8,
+    "mapColumns": 8,
+    "sourceWidth": 400,
+    "sourceHeight": 400
+}

@@ -1,0 +1,11 @@
+{
+    "name": "boyWalkDown",
+    "src": "game_assets/images/boy-spritesheet-mirrored.png",
+    "width": 20.5,
+    "height": 24,
+    "positions": [[0,0],[20.5,0],[41,0],[61.5,0]],
+    "frame": 0,
+    "frameMax": 3,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

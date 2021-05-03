@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "sand-360x600.sprt",
+    "src": "game_assets/images/sand-360x600.png?t=1587510678",
+    "width": 360,
+    "height": 600,
+    "positions": [[0,0],[0,0]],
+    "frame": 0,
+    "frameMax": 1,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

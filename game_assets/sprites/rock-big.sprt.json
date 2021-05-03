@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "rock-big.sprt",
+    "src": "game_assets/images/rock-big.png?t=1588050796",
+    "width": 56,
+    "height": 75,
+    "positions": [[0,0],[0,0]],
+    "frame": 0,
+    "frameMax": 1,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

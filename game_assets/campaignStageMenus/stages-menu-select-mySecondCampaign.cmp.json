@@ -1,0 +1,22 @@
+{
+    "destination_dir": "game_assets/campaignStageMenus",
+    "name": "stages-menu-select-mySecondCampaign.cmp",
+    "stages": [
+        {
+            "name": "myFirstStage.stg",
+            "description": ""
+        },
+        {
+            "name": "myFourthStage.stg",
+            "description": ""
+        },
+        {
+            "name": "mySixthStage.stg",
+            "description": ""
+        },
+        {
+            "name": "mySecondStage.stg",
+            "description": "brickmann1 skel * 10n1 red carr * 5 from 10 secnn"
+        }
+    ]
+}

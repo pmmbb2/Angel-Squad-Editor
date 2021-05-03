@@ -1,0 +1,11 @@
+{
+    "name": "angel-archer.sprt",
+    "src": "game_assets/images/angel-archer-spritesheet-300x46.png?t=1580660367",
+    "width": 50,
+    "height": 46,
+    "positions": [[0,0],[50,0],[100,0],[150,0],[200,0],[250,0]],
+    "frame": 0,
+    "frameMax": 5,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

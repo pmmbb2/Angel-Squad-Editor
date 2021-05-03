@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "crocodile-rush-down-75x186.sprt",
+    "src": "game_assets/images/crocodile-375x186.png?t=1587576990",
+    "width": 75,
+    "height": 186,
+    "positions": [[0,0],[75,0],[150,0],[75,0],[0,0],[225,0],[300,0],[225,0]],
+    "frame": 0,
+    "frameMax": 7,
+    "frameTicker": 0,
+    "nextFrameAt": 8
+}

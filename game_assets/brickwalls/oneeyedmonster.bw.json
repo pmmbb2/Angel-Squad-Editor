@@ -1,0 +1,22 @@
+{
+    "destination_dir": "game_assets/brickwalls",
+    "brickwall_name": "oneeyedmonster.bw",
+    "wallBrickMap": "[10,10,-1,12,12,12,12,-1,10,10,10,-1,10,12,2,2,12,10,-1,10,10,12,10,2,3,3,2,10,12,10,10,12,2,3,7,7,3,2,12,10,-1,12,2,3,7,7,3,2,12,-1,-1,12,2,3,3,3,3,2,12,-1,-1,-1,12,10,10,10,10,12,-1,-1,-1,12,-1,10,-1,-1,10,-1,12,-1,12,-1,12,-1,-1,12,-1,12,-1,12,12,-1,12,-1,12,-1,-1,12,-1,12]",
+    "wallBrickMapEnergy": "[-1,-1,0,2,2,2,2,0,-1,-1,-1,0,-1,2,1,1,2,-1,0,-1,-1,2,-1,1,1,1,1,-1,2,-1,-1,2,1,1,1,1,1,1,2,-1,0,2,1,1,1,1,1,1,2,0,0,2,1,1,1,1,1,1,2,0,0,0,2,-1,-1,-1,-1,2,0,0,0,2,0,-1,0,0,-1,0,2,0,2,0,2,0,0,2,0,2,0,2,2,0,2,0,2,0,0,2,0,2]",
+    "description": "one eyed monster brickwall",
+    "brickWidth": 36,
+    "brickHeight": 36,
+    "brickRowCount": 10,
+    "brickColumnCount": 10,
+    "brickPadding": "",
+    "bricksFillStyle": "",
+    "brickWallSkin": "color",
+    "bricksEqualTiles": "same",
+    "brickWallImage": "",
+    "tileWidth": 36,
+    "tileHeight": 36,
+    "mapRows": 10,
+    "mapColumns": 10,
+    "sourceWidth": 360,
+    "sourceHeight": 360
+}

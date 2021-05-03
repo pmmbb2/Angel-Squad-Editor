@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "shark-in-water-right.sprt",
+    "src": "game_assets/images/shark-in-water-right.png?t=1592602110",
+    "width": 70,
+    "height": 104,
+    "positions": [[210,0],[0,0],[70,0],[140,0],[140,0],[70,0],[0,0],[210,0]],
+    "frame": 0,
+    "frameMax": 6,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

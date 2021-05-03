@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "beachball-right.sprt",
+    "src": "game_assets/images/BEACHBALL-RIGHT-16x16.png?t=1596220623",
+    "width": 16,
+    "height": 16,
+    "positions": [[0,0],[16,0],[32,0],[48,0],[64,0],[80,0]],
+    "frame": 0,
+    "frameMax": 5,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

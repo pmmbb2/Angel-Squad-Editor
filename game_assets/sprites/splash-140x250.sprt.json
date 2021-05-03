@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "splash-140x250.sprt",
+    "src": "game_assets/images/splash-spritesheet-140x250.png?t=1593560217",
+    "width": 140,
+    "height": 250,
+    "positions": [[0,0],[140,0],[280,0],[420,0],[560,0],[700,0],[840,0],[980,0]],
+    "frame": 0,
+    "frameMax": 7,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

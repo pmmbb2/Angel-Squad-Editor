@@ -1,0 +1,11 @@
+{
+    "name": "angel-portal.sprt",
+    "src": "game_assets/images/angel-portal-spritesheet.png?t=1581015336",
+    "width": 100,
+    "height": 80,
+    "positions": [[0,0],[100,0],[200,0]],
+    "frame": 0,
+    "frameMax": 2,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

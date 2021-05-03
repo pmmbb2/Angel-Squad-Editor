@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "small-collision-48x48.sprt",
+    "src": "game_assets/images/collision-48x48.png?t=1582591787",
+    "width": 48,
+    "height": 48,
+    "positions": [[0,0],[0,0]],
+    "frame": 0,
+    "frameMax": 1,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "angel-M.angelo-archer.sprt",
+    "src": "game_assets/images/angel-M.angelo-archer-320x90.png?t=1586626898",
+    "width": 80,
+    "height": 90,
+    "positions": [[0,0],[80,0],[160,0],[240,0]],
+    "frame": 0,
+    "frameMax": 3,
+    "frameTicker": 0,
+    "nextFrameAt": 3
+}

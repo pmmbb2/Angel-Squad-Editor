@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "speedChangerArrow.sprt",
+    "src": "game_assets/images/speedChangerArrowSprite-30x30.png?t=1603866977",
+    "width": 30,
+    "height": 30,
+    "positions": [[0,0],[30,0],[60,0],[90,0],[120,0],[150,0],[180,0],[210,0]],
+    "frame": 0,
+    "frameMax": 7,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

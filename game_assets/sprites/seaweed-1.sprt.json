@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "seaweed-1.sprt",
+    "src": "game_assets/images/seaweed-1.png?t=1588051005",
+    "width": 23,
+    "height": 29,
+    "positions": [[0,0],[0,0]],
+    "frame": 0,
+    "frameMax": 1,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

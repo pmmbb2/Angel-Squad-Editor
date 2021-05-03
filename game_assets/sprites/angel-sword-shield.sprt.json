@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "angel-sword-shield.sprt",
+    "src": "game_assets/images/angel-sword-shield-spritesheet-150x46.png?t=1583847457",
+    "width": 50,
+    "height": 46,
+    "positions": [[0,0],[50,0],[100,0]],
+    "frame": 0,
+    "frameMax": 2,
+    "frameTicker": 0,
+    "nextFrameAt": 5
+}

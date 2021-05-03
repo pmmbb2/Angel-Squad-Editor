@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "shark-groggy.sprt",
+    "src": "game_assets/images/great-white-GROGGY-420x250.png?t=1593815582",
+    "width": 140,
+    "height": 250,
+    "positions": [[280,0],[0,0],[140,0],[0,0]],
+    "frame": 0,
+    "frameMax": 3,
+    "frameTicker": 0,
+    "nextFrameAt": 24
+}

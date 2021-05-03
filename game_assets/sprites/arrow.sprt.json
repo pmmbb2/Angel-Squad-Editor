@@ -1,0 +1,11 @@
+{
+    "name": "arrow.sprt",
+    "src": "game_assets/images/arrow.png?t=1580394974",
+    "width": 5,
+    "height": 20,
+    "positions": [[0,0],[0,0]],
+    "frame": 0,
+    "frameMax": 1,
+    "frameTicker": 0,
+    "nextFrameAt": 1
+}

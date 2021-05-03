@@ -1,0 +1,11 @@
+{
+    "name": "grass_river.BG.sprt",
+    "src": "game_assets/images/grass_river_spritesheet-1080x700.png?t=1581204380",
+    "width": 360,
+    "height": 700,
+    "positions": [[0,0],[360,0],[720,0]],
+    "frame": 0,
+    "frameMax": 2,
+    "frameTicker": 0,
+    "nextFrameAt": 48
+}

@@ -1,0 +1,13 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "ocean-spritesheet-360x700.sprt",
+    "src": "game_assets/images/ocean-waves-spritesheet-360x700.png?t=1614620272",
+    "width": 360,
+    "height": 700,
+    "positions": [[0,0],[360,0],[720,0],[1080,0]],
+    "frame": 0,
+    "frameMax": 3,
+    "frameTicker": 0,
+    "nextFrameAt": 24,
+    "hitboxes": ""
+}

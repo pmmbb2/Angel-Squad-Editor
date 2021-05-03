@@ -1,0 +1,11 @@
+{
+    "name": "angel-flying-right.sprt",
+    "src": "game_assets/images/angel-flying-spritesheet-240x28.png?t=1581027861",
+    "width": 30,
+    "height": 28,
+    "positions": [[120,0],[150,0]],
+    "frame": 0,
+    "frameMax": 1,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

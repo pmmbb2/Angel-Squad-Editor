@@ -1,0 +1,21 @@
+{
+    "brickwall_name": "brickman.brickwall",
+    "wallBrickMap": "[0,-1,-1,-1,53,53,-1,-1,-1,0,0,-1,-1,-1,53,53,-1,-1,-1,0,0,-1,-1,-1,53,53,-1,-1,-1,0,0,-1,56,56,56,56,56,56,-1,0,0,-1,56,-1,56,56,-1,56,-1,0,0,-1,56,-1,56,56,-1,56,-1,0,0,-1,-1,-1,56,56,-1,-1,-1,0,0,-1,-1,56,-1,-1,56,-1,-1,0,0,-1,-1,56,-1,-1,56,-1,-1,0,0,-1,-1,56,-1,-1,56,-1,-1,0]",
+    "wallBrickMapEnergy": "[1,0,0,0,-1,-1,0,0,0,1,1,0,0,0,-1,-1,0,0,0,1,1,0,0,0,-1,-1,0,0,0,1,1,0,-1,-1,-1,-1,-1,-1,0,1,1,0,-1,0,-1,-1,0,-1,0,1,1,0,-1,0,-1,-1,0,-1,0,1,1,0,0,0,-1,-1,0,0,0,1,1,0,0,-1,0,0,-1,0,0,1,1,0,0,-1,0,0,-1,0,0,1,1,0,0,-1,0,0,-1,0,0,1]",
+    "description": "VICTORY COMES TO THE BRAVE",
+    "brickWidth": 25.5,
+    "brickHeight": 19.8,
+    "brickRowCount": 10,
+    "brickColumnCount": 10,
+    "brickPadding": "",
+    "bricksFillStyle": "",
+    "brickWallSkin": "img",
+    "bricksEqualTiles": "same",
+    "brickWallImage": "game_assets/images/brickwall.png",
+    "tileWidth": 25.5,
+    "tileHeight": 19.8,
+    "mapRows": 10,
+    "mapColumns": 10,
+    "sourceWidth": 255,
+    "sourceHeight": 198
+}

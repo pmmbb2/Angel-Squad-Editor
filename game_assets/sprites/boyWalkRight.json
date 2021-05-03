@@ -1,0 +1,11 @@
+{
+    "name": "boyWalkRight",
+    "src": "game_assets/images/boy-spritesheet.png",
+    "width": 20.5,
+    "height": 24,
+    "positions": [[61.5,72],[41,72],[20.5,72],[0,72]],
+    "frame": 0,
+    "frameMax": 3,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

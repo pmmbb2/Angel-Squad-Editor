@@ -1,0 +1,207 @@
+
+/*
+	ENTITY EDITOR
+	#sprt_ed
+*/
+
+
+
+#entities_editor{
+	z-index: 4
+}
+	
+#entities_editor.customWindow, #entities_editor.customWindow>*{
+	/*! position: absolute; */
+	overflow: hidden;
+}	
+
+#ent_ed_wrapper, #ent_ed_wrapper .ui-tabs-panel{
+	height: 100%;
+	/*! overflow: auto; */
+}
+
+form#ent_ed_frm #ent-ed-tabs-2 label, 
+form#ent_ed_frm #ent-ed-tabs-3 label, 
+form#ent_ed_frm input, 
+form#ent_ed_frm textarea:not(.customStyle){
+	width: 48%;
+	display: inline-block;
+}
+/*
+#entities_paths_selector{
+	width: 400px !important;
+	background-color: #888;
+}*/
+/*
+#entities_paths_selector ul.paths_list{
+	height: 700px !important;
+	width: 400px !important;
+	overflow: auto !important;
+	border: #09f 5px solid !important;
+}
+*/
+label[for="entity_path"] .path_thumb{
+	height: 200px !important;
+	float: right
+}
+
+#closeEntityPathSelector, #closeEntitySpritesSelector{
+	position: absolute;
+	top: -2em;
+	right: 0;
+	padding: 0.5em;
+	cursor: pointer;	
+	color: #fff;	
+	background-color: #09f !important;	
+}
+
+#closeEntityPathSelector::after,
+#noPathBtn::after,
+#closeEntitySpritesSelector:after{
+	content: '\2716';
+	padding: 0.5em;	
+	width: 4em;	
+	color: #fff;	
+	
+}	
+
+#noPathBtn{
+	display: inline-block;
+	padding: 0.5em;
+	margin: 0 2em;
+	min-width: 80px;
+	background-color: #f90 !important;
+	text-align: center;
+  border: 2px outset #999;
+}	
+
+#ent-ed-tabs{
+  position: relative;
+	width: 100%;
+	height: 100%;		
+}
+
+#ent-ed-tabs-4{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+/*
+#entities_sprites_list_container{
+	position: absolute;
+	top: 2em;
+	height: 100%;
+	width: 200px;
+}
+*/
+#entities_sprites_list{
+	position: absolute;
+	width: 100%;	
+	height: 50%;
+	overflow: auto;
+	background-color: #ffc;
+	border: 0.5em #09f solid;
+	padding: 1em;
+	list-style: none
+}
+
+#ent-ed-tabs-4 {	
+	width: 100%;
+}
+
+#ent-ed-tabs-5 label:not(.ui-button){
+	vertical-align: middle;
+	line-height: 2em;
+	float: left;
+	min-width: 400px
+}
+
+#ent-ed-tabs-5 .wrapper {
+    overflow: auto;
+    height: 500px;
+}
+
+#entity_identity_inputs,
+#entity_position_movements_inputs,
+#entity_position_movements_preview{
+	position: relative;
+	z-index: 1;
+	width: 45%;
+	top: 0;
+	display: inline-block;
+}
+
+#entity_position_movements_inputs{
+	vertical-align: top;
+	background-color: #ccc;
+	padding: 1.5em 0;
+	margin-left: 2em;
+}
+
+#entity_position_movements_preview{	
+	background-color: rgb(128,128,128);
+	height: 700px;
+}
+
+#entity_stage_position_preview{
+	position: relative;
+	margin: 0 auto;
+	background-color: #aaa;	
+	width: 400px;
+	height: 700px;
+	
+}
+
+.entities_list{
+	list-style: none
+}
+
+.select_entity{
+	text-decoration: none;
+	vertical-align: middle
+}
+
+.remove_animation{
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+	line-height: 1em;
+	text-align: center;
+  background-color: #ccc;
+	text-decoration: none;
+	color: crimson !important;
+	border: thin solid crimson;
+	border-radius: 0.5em
+}
+
+.remove_animation:hover{
+	background-color: #fff;
+}
+
+#entity_path:hover,
+label[for='entity_path']:hover,
+#DEFAULT,#UP,#LEFT,#RIGHT,#DOWN,#APPEAR,#DISAPPEAR{
+	cursor: pointer !important;
+}
+
+#entities_list_container {
+    overflow: auto;
+    height: 500px;
+}
+
+
+
+
+div#divUP label img,
+div#divDOWN label img,
+div#divLEFT label img,
+div#divRIGHT label img,
+div#divDEFAULT label img
+{    
+    max-width: 100px;
+    max-height: 100px;
+    position: absolute;
+    top: -100px;   
+}
+

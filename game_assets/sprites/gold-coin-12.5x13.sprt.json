@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "gold-coin-12.5x13.sprt",
+    "src": "game_assets/images/gold-coin-spritesheet-75x13.png?t=1583025964",
+    "width": 12.5,
+    "height": 13,
+    "positions": [[0,0],[12.5,0],[25,0],[37.5,0],[50,0],[62.5,0]],
+    "frame": 0,
+    "frameMax": 5,
+    "frameTicker": 0,
+    "nextFrameAt": 10
+}

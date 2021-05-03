@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "angel-M.angelo-fly.sprt",
+    "src": "game_assets/images/angel-M.angelo-fly320x70.png?t=1586471281",
+    "width": 80,
+    "height": 70,
+    "positions": [[0,0],[80,0],[160,0],[240,0]],
+    "frame": 0,
+    "frameMax": 3,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

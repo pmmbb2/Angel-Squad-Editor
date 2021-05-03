@@ -1,0 +1,22 @@
+{
+    "destination_dir": "game_assets/brickwalls",
+    "brickwall_name": "",
+    "wallBrickMap": "",
+    "wallBrickMapEnergy": "",
+    "description": "",
+    "brickWidth": 11,
+    "brickHeight": 8.8,
+    "brickRowCount": 10,
+    "brickColumnCount": 10,
+    "brickPadding": "",
+    "bricksFillStyle": "",
+    "brickWallSkin": "",
+    "bricksEqualTiles": "",
+    "brickWallImage": "game_assets/images/beach-boulder.png?t=1613250240",
+    "tileWidth": 11.6,
+    "tileHeight": 8.8,
+    "mapRows": 10,
+    "mapColumns": 10,
+    "sourceWidth": 116,
+    "sourceHeight": 88
+}

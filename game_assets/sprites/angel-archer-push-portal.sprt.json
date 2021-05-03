@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "angel-archer-push-portal.sprt",
+    "src": "game_assets/images/ANGEL-ARCHER-PUSH-PORTAL-spritesheet-320x75.png?t=1586976764",
+    "width": 80,
+    "height": 75,
+    "positions": [[0,0],[80,0],[160,0],[240,0]],
+    "frame": 0,
+    "frameMax": 3,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "angel-boxing.sprt",
+    "src": "game_assets/images/angel-boxing-spritesheet-150x46.png?t=1591459080",
+    "width": 50,
+    "height": 46,
+    "positions": [[0,0],[0,0],[50,0],[50,0],[100,0],[100,0],[50,0],[50,0]],
+    "frame": 0,
+    "frameMax": 7,
+    "frameTicker": 0,
+    "nextFrameAt": 5
+}

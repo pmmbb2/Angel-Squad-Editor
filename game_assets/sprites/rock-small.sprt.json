@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "rock-small.sprt",
+    "src": "game_assets/images/rock-small.png?t=1588050796",
+    "width": 33,
+    "height": 30,
+    "positions": [[0,0],[0,0]],
+    "frame": 0,
+    "frameMax": 1,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

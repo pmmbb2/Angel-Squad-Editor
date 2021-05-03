@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "water-top.sprt",
+    "src": "game_assets/images/water-top.png?t=1588051551",
+    "width": 360,
+    "height": 207,
+    "positions": [[0,0],[0,0]],
+    "frame": 0,
+    "frameMax": 1,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

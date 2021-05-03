@@ -1,0 +1,11 @@
+{
+    "name": "dancing-flower",
+    "src": "game_assets/images/dancing-flower-spritesheet.png",
+    "width": 32,
+    "height": 32,
+    "positions": [[0,0],[32,0],[64,0],[96,0],[128,0],[160,0],[192,0],[224,0]],
+    "frame": 0,
+    "frameMax": 1,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

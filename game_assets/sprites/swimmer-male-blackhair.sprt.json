@@ -1,0 +1,13 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "swimmer-male-blackhair.sprt",
+    "src": "game_assets/images/SWIMMER-UP-SPRITESHEET-MALE-1.png?t=1609232265",
+    "width": 32,
+    "height": 32,
+    "positions": [[0,0],[32,0],[64,0]],
+    "frame": 0,
+    "frameMax": 2,
+    "frameTicker": 0,
+    "nextFrameAt": 12,
+    "hitboxes": [{"x":0,"y":0,"h":32,"w":32,"idx":0},{"x":0,"y":0,"h":32,"w":32,"idx":1},{"x":0,"y":0,"h":32,"w":32,"idx":2}]
+}

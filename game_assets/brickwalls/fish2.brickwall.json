@@ -1,0 +1,21 @@
+{
+    "brickwall_name": "fish2.brickwall",
+    "wallBrickMap": "[-1,-1,-1,11,11,11,-1,-1,-1,-1,-1,11,11,11,-1,-1,-1,11,-1,-1,11,11,11,-1,-1,11,11,-1,11,12,11,11,11,11,11,-1,11,11,11,11,11,11,11,11,-1,-1,11,11,11,11,11,11,11,-1,-1,-1,11,11,11,11,-1,11,11,-1,-1,-1,11,11,11,-1,-1,11,-1,-1,-1,-1,11,11,11,-1,-1]",
+    "wallBrickMapEnergy": "[0,0,0,1,1,1,0,0,0,0,0,1,1,1,0,0,0,1,0,0,1,1,1,0,0,1,1,0,1,-1,1,1,1,1,1,0,1,1,1,1,1,1,1,1,0,0,1,1,1,1,1,1,1,0,0,0,1,1,1,1,0,1,1,0,0,0,1,1,1,0,0,1,0,0,0,0,1,1,1,0,0]",
+    "description": "",
+    "brickWidth": 40,
+    "brickHeight": 22,
+    "brickRowCount": 9,
+    "brickColumnCount": 9,
+    "brickPadding": "",
+    "bricksFillStyle": "",
+    "brickWallSkin": "color",
+    "bricksEqualTiles": "same",
+    "brickWallImage": "",
+    "tileWidth": 40,
+    "tileHeight": 22,
+    "mapRows": 9,
+    "mapColumns": 9,
+    "sourceWidth": 360,
+    "sourceHeight": 200
+}

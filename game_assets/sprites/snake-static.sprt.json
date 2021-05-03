@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "snake-static.sprt",
+    "src": "game_assets/images/snake-static-120x38.png?t=1587505376",
+    "width": 40,
+    "height": 38,
+    "positions": [[0,0],[40,0],[80,0]],
+    "frame": 0,
+    "frameMax": 2,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

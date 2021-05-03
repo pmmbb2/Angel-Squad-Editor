@@ -1,0 +1,11 @@
+{
+    "name": "forest1.sprt",
+    "src": "game_assets/images/forest1.png?t=1580693865",
+    "width": 360,
+    "height": 700,
+    "positions": [[0,0],[0,0]],
+    "frame": 0,
+    "frameMax": 1,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

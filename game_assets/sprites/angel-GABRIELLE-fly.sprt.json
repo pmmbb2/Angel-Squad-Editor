@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "angel-GABRIELLE-fly.sprt",
+    "src": "game_assets/images/ANGEL-GABRIELLE-FLY-NEUTRAL-spritesheet-320x63.png?t=1587238360",
+    "width": 80,
+    "height": 63,
+    "positions": [[0,0],[80,0],[160,0],[240,0]],
+    "frame": 0,
+    "frameMax": 3,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

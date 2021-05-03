@@ -1,0 +1,250 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>jqueryui.dialog.fullmode</title>
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/blitzer/jquery-ui.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="jqueryui.dialog.fullmode.js"></script>
+    <style>
+        html,* { font-family: 'Quicksand'; }
+        body {
+            background: #fafafa;
+            overflow: hidden;
+        }
+        h1 { margin-top: 150px; text-align: center; }
+
+        .content {
+            max-width: 728px;
+            margin: auto;
+            padding: 10px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+
+        .button {
+            display: inline-block;
+            border-radius: 15px;
+            background-color: #527ef5;
+            border: none;
+            color: #FFFFFF;
+            text-align: center;
+            font-size: 28px;
+            padding: 20px;
+            width: 200px;
+            transition: all 0.5s;
+            cursor: pointer;
+            margin: 5px;
+            box-shadow: 0 9px #999;
+        }
+
+        .button:active {
+            background-color: #2f3dff;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+
+        .button span {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            transition: 0.5s;
+        }
+
+        .button span:after {
+            content: '\00bb';
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            right: -20px;
+            transition: 0.5s;
+        }
+
+        .button:hover span {
+            padding-right: 25px;
+        }
+
+        .button:hover span:after {
+            opacity: 1;
+            right: 0;
+        }
+    </style>
+    <script>
+        var toolTip;
+        var dialog_demo1;
+        var dialog_demo2;
+        var dialog_demo3;
+        $(function () {
+            toolTip = $(".button").tooltip({
+                position: { at: "bottom" }
+            });
+            dialog_demo1 = $("#demo1").dialog({
+                width: 500,
+                height: 300,
+                modal: true,
+                autoOpen: false,
+                dialogClass: "dialog-full-mode"
+            });
+
+            dialog_demo2 = $("#demo2").dialog({
+                width: 500,
+                height: 300,
+                /*modal: true,*/
+                autoOpen: false,
+                dialogClass: "dialog-full-mode"
+            });
+
+            dialog_demo3 = $("#demo3").dialog({
+                autoOpen: false
+            });
+
+            $(document).dialogfullmode();
+
+            $("#demo1_btn").on("click", function () {
+                dialog_demo1.dialog("open");
+                toolTip.tooltip("close");
+            })
+
+            $("#demo2_btn").on("click", function () {
+                dialog_demo2.dialog("open");
+                toolTip.tooltip("close");
+            })
+
+            $("#demo3_btn").on("click", function () {
+                dialog_demo3.dialog("open");
+                toolTip.tooltip("close");
+            })
+        })
+    </script>
+</head>
+
+<body>
+        <h1>jQuery-ui dialog full mode plugin</h1>
+        <div id="carbon-block" style="margin:50px auto" align="center"></div>
+<div style="margin:50px auto" align="center"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+    <div class="content">
+        <button class="button" style="vertical-align:middle" id="demo1_btn"
+            title="html table content with full mode button">
+            <span>Demo1 </span>
+        </button>
+        <button class="button" style="vertical-align:middle" id="demo2_btn" title="text content with full mode button">
+            <span>Demo2 </span>
+        </button>
+        <button class="button" style="vertical-align:middle" id="demo3_btn" title="dialog without full mode button">
+            <span>Demo3 </span>
+        </button>
+    </div>
+    <div id="demo1" title="full mode button >>>>>>>>">
+        <div id="demo1_2">
+            <h2>HTML Table</h2>
+            <table>
+                <tr>
+                    <th>Company</th>
+                    <th>Contact</th>
+                    <th>Country</th>
+                </tr>
+                <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td>Germany</td>
+                </tr>
+                <tr>
+                    <td>Centro comercial Moctezuma</td>
+                    <td>Francisco Chang</td>
+                    <td>Mexico</td>
+                </tr>
+                <tr>
+                    <td>Ernst Handel</td>
+                    <td>Roland Mendel</td>
+                    <td>Austria</td>
+                </tr>
+                <tr>
+                    <td>Island Trading</td>
+                    <td>Helen Bennett</td>
+                    <td>UK</td>
+                </tr>
+                <tr>
+                    <td>Laughing Bacchus Winecellars</td>
+                    <td>Yoshi Tannamuri</td>
+                    <td>Canada</td>
+                </tr>
+                <tr>
+                    <td>Magazzini Alimentari Riuniti</td>
+                    <td>Giovanni Rovelli</td>
+                    <td>Italy</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="demo2" title="full mode button >>>>>>>>">
+        <p> Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2
+            Demo2 Demo2 Demo2 Demo2 Demo2 Demo2
+            Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2
+            Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2 Demo2
+        </p>
+    </div>
+    <div id="demo3" title="no full mode button">
+        <p> Demo3 Demo3 Demo3 Demo3 Demo3 Demo3 Demo3 Demo3 Demo3 Demo3 Demo3 Demo3 Demo3 Demo3 Demo3
+            Demo3 Demo3 Demo3 Demo3 Demo3 Demo3 Demo3 Demo3 Demo3 Demo3 Demo3 Demo3 Demo3 Demo3
+        </p>
+    </div>
+<script>
+try {
+  fetch(new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", { method: 'HEAD', mode: 'no-cors' })).then(function(response) {
+    return true;
+  }).catch(function(e) {
+    var carbonScript = document.createElement("script");
+    carbonScript.src = "//cdn.carbonads.com/carbon.js?serve=CK7DKKQU&placement=wwwjqueryscriptnet";
+    carbonScript.id = "_carbonads_js";
+    document.getElementById("carbon-block").appendChild(carbonScript);
+  });
+} catch (error) {
+  console.log(error);
+}
+</script>
+</body>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</html>

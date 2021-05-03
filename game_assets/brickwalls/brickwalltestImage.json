@@ -1,0 +1,21 @@
+{
+    "brickwall_name": "brickwalltestImage",
+    "wallBrickMap": "[18,12,12,18,12,10,4,12,12,4,10,12,18,12,12,18]",
+    "wallBrickMapEnergy": "[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]",
+    "description": "This description is a test",
+    "brickWidth": 50,
+    "brickHeight": 50,
+    "brickRowCount": 4,
+    "brickColumnCount": 4,
+    "brickPadding": "",
+    "bricksFillStyle": "",
+    "brickWallSkin": "color",
+    "bricksEqualTiles": "same",
+    "brickWallImage": "",
+    "tileWidth": 50,
+    "tileHeight": 50,
+    "mapRows": 4,
+    "mapColumns": 4,
+    "sourceWidth": 200,
+    "sourceHeight": 200
+}

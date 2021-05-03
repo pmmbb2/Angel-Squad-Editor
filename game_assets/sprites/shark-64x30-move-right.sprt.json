@@ -1,0 +1,13 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "shark-64x30-move-right.sprt",
+    "src": "game_assets/images/shark-34x30-right-fin-spritesheet.png?t=1610607543",
+    "width": 64,
+    "height": 30,
+    "positions": [[192,0],[192,0],[128,0],[128,0],[64,0],[64,0],[0,0],[0,0]],
+    "frame": 0,
+    "frameMax": 3,
+    "frameTicker": 0,
+    "nextFrameAt": 12,
+    "hitboxes": [{"x":0,"y":0,"h":30,"w":64,"idx":0},{"x":0,"y":0,"h":30,"w":64,"idx":1},{"x":0,"y":0,"h":30,"w":64,"idx":2},{"x":0,"y":0,"h":30,"w":64,"idx":3},{"x":0,"y":0,"h":30,"w":64,"idx":4},{"x":0,"y":0,"h":30,"w":64,"idx":5},{"x":0,"y":0,"h":30,"w":64,"idx":6},{"x":0,"y":0,"h":30,"w":64,"idx":7}]
+}

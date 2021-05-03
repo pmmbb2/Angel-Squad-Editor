@@ -1,0 +1,22 @@
+{
+    "destination_dir": "game_assets/brickwalls",
+    "brickwall_name": "brickwalltestColors.brickwall",
+    "wallBrickMap": "[2,13,13,13,13,2,2,13,13,13,13,2,13,12,13,13,12,13,13,13,2,2,13,13,13,3,13,13,3,13,13,3,3,3,3,13]",
+    "wallBrickMapEnergy": "[-1,1,1,1,1,-1,-1,1,1,1,1,-1,1,1,1,1,1,1,1,1,-1,-1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]",
+    "description": "This description is a test",
+    "brickWidth": 50,
+    "brickHeight": 33,
+    "brickRowCount": 6,
+    "brickColumnCount": 6,
+    "brickPadding": 0,
+    "bricksFillStyle": "",
+    "brickWallSkin": "color",
+    "bricksEqualTiles": "same",
+    "brickWallImage": "",
+    "tileWidth": 50,
+    "tileHeight": 33,
+    "mapRows": 6,
+    "mapColumns": 6,
+    "sourceWidth": 300,
+    "sourceHeight": 200
+}

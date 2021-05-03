@@ -1,0 +1,23 @@
+/* -----------------------------------------------------
+   created with https://www.codeandweb.com/texturepacker 
+   -----------------------------------------------------
+   $TexturePacker:SmartUpdate:6d8cb06b2ec0c6a4a88f17fd5694a9d3:99c999efd1d35f420b9ac3b2e6c30cf5:155ebc9e71e66d9fe9d141f8152f6328$
+   -----------------------------------------------------
+
+   usage: <span class="{-spritename-} sprite"></span>
+
+   replace {-spritename-} with the sprite you like to use
+
+*/
+
+.sprite {display:inline-block; overflow:hidden; background-repeat: no-repeat;background-image:url(ui-spritesheet.png);}
+
+.UI-stage-3-stars-360x640 {width:360px; height:640px; background-position: -0px -494px}
+.UI-stage-marks-78x39 {width:78px; height:39px; background-position: -86px -0px}
+.ui-stage-BG-360x700 {width:360px; height:700px; background-position: -0px -1134px}
+.ui-stage-buttons-272x372 {width:272px; height:372px; background-position: -0px -122px}
+.ui-stage-close-btn-47x47 {width:47px; height:47px; background-position: -164px -0px}
+.ui-stage-gold-coin {width:22px; height:22px; background-position: -0px -0px}
+.ui-stage-minCombos {width:34px; height:35px; background-position: -22px -0px}
+.ui-stage-timer-icon-30x36 {width:30px; height:36px; background-position: -56px -0px}
+.ui-stage-wings-halo-360x75 {width:360px; height:75px; background-position: -0px -47px}

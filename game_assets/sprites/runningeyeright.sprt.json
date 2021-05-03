@@ -1,0 +1,11 @@
+{
+    "name": "runningeyeright.sprt",
+    "src": "game_assets/images/running-eye.png?t=1580494194",
+    "width": 32,
+    "height": 32,
+    "positions": [[0,0],[32,0],[64,0],[96,0],[128,0]],
+    "frame": 0,
+    "frameMax": 5,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

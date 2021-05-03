@@ -1,0 +1,13 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "boxing-gloves-powerup.sprt",
+    "src": "game_assets/images/boxing-gloves-powerup-winged.png",
+    "width": 128,
+    "height": 78,
+    "positions": [[0,0],[128,0],[256,0]],
+    "frame": 0,
+    "frameMax": 2,
+    "frameTicker": 0,
+    "nextFrameAt": 12,
+    "hitboxes": [{"x":-2,"y":-2,"idx":0}]
+}

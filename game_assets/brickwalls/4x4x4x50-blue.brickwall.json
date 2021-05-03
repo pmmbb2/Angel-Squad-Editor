@@ -1,0 +1,21 @@
+{
+    "brickwall_name": "4x4x4x50-blue.brickwall",
+    "wallBrickMap": "[6,6,6,6,7,7,7,7,8,8,8,8,9,9,9,9]",
+    "wallBrickMapEnergy": "[2,2,2,2,1,1,1,1,2,2,2,2,1,1,1,1]",
+    "description": "tedst",
+    "brickWidth": 50,
+    "brickHeight": 50,
+    "brickRowCount": 4,
+    "brickColumnCount": 4,
+    "brickPadding": "",
+    "bricksFillStyle": "",
+    "brickWallSkin": "color",
+    "bricksEqualTiles": "same",
+    "brickWallImage": "",
+    "tileWidth": 50,
+    "tileHeight": 50,
+    "mapRows": 4,
+    "mapColumns": 4,
+    "sourceWidth": 200,
+    "sourceHeight": 200
+}

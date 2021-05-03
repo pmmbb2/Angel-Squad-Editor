@@ -1,0 +1,11 @@
+{
+    "name": "car",
+    "src": "game_assets/images/redcarspritesheet.png",
+    "width": 130,
+    "height": 70,
+    "positions": [[0,0],[130,0]],
+    "frame": 0,
+    "frameMax": 1,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

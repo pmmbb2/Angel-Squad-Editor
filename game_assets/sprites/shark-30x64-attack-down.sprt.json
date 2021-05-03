@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "shark-30x64-attack-down.sprt",
+    "src": "game_assets/images/shark-20x43-down-spritesheet-sheet.png?t=1594974525",
+    "width": 20,
+    "height": 43,
+    "positions": [[0,0],[20,0],[40,0],[60,0],[80,0]],
+    "frame": 0,
+    "frameMax": 4,
+    "frameTicker": 0,
+    "nextFrameAt": 8
+}

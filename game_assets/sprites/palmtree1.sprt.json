@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "palmtree1.sprt",
+    "src": "game_assets/images/palmtree-2.png?t=1604245415",
+    "width": 111,
+    "height": 125,
+    "positions": [[0,0]],
+    "frame": 0,
+    "frameMax": 2,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

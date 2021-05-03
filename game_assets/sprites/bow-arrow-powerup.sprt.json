@@ -1,0 +1,13 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "bow-arrow-powerup.sprt",
+    "src": "game_assets/images/bow-quiver-powerup-winged.png?t=1615134977",
+    "width": 128,
+    "height": 78,
+    "positions": [[0,0],[128,0],[256,0]],
+    "frame": 0,
+    "frameMax": 2,
+    "frameTicker": 0,
+    "nextFrameAt": 12,
+    "hitboxes": [{"h":36,"w":84,"idx":0}]
+}

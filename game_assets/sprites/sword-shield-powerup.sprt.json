@@ -1,0 +1,13 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "sword-shield-powerup.sprt",
+    "src": "game_assets/images/sword-shield-powerup-winged.png?t=1614616990",
+    "width": 128,
+    "height": 78,
+    "positions": [[0,0],[128,0],[256,0]],
+    "frame": 0,
+    "frameMax": 2,
+    "frameTicker": 0,
+    "nextFrameAt": 12,
+    "hitboxes": ""
+}

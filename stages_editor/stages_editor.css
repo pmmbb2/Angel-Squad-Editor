@@ -1,0 +1,1106 @@
+
+/*
+	STAGES EDITOR
+	#stg_ed
+*/
+
+
+
+#stages_editor{
+	z-index: 4
+}
+	
+#stages_editor.customWindow{	
+	overflow: hidden;
+}	
+ 
+#stg_ed_wrapper{
+	overflow: hidden;
+	width: 50%;
+	margin-left: 50%;
+	height: 100%;
+	position: absolute;
+	top: 1.5em;
+	z-index: 4 
+}
+
+#stg_ed_wrapper .ui-tabs-panel{	
+	overflow-y: hiddenj;
+	height: 80% !important;
+}
+
+#stg-ed-tabs{
+	display: block;
+	height: 100%;
+	overflow: hidden;
+}
+
+#stg_ed_frm{
+	display: block;
+	height: 100%;	
+}	
+
+#stg_ed_wrapper #stg-ed-tabs-1 label, 
+#stg_ed_wrapper #stg-ed-tabs-2 label, 
+#stg_ed_wrapper #stg-ed-tabs-3 label, 
+#stg_ed_wrapper #stg-ed-tabs-4 label, 
+#stg_ed_wrapper input, 
+#stg_ed_wrapper span.ui-spinner,
+#stg_ed_wrapper textarea:not(.customStyle){
+	width: 24% !important;
+	display: inline-block;
+	/*width: 48%;*/
+}
+
+#stg_ed_wrapper span.ui-spinner input{
+	width: 80px !important
+}
+
+
+#stages_entities_list_container {
+	display: block;
+	height: 80%;
+	overflow-y: auto;
+	background-color: #ccc;
+}
+
+#stages_entities_list_container .entities_list{
+	display: block;
+  height: 100%;
+	overflow-y: auto;
+}
+
+#stages_entities_list_container .entities_list .delete_entity{
+  display: none;
+}
+
+/*
+#stages_paths_selector{
+	width: 400px !important;
+	background-color: #888;
+	overflow: visible;
+}
+
+#stages_paths_selector ul.paths_list{
+	height: 700px !important;
+	width: 400px !important;
+	overflow: auto !important;
+	border: #09f 5px solid !important;
+}
+*/
+label[for="stage_path"] .path_thumb,
+label[for="stage_BW_path"] .path_thumb{
+	height: 200px !important;
+	float: right;	
+}
+
+#closeStagePathSelector,
+#BWCloseEntityPathSelector{
+	position: absolute;
+	top: -2em;
+	right: 0;
+	padding: 0.5em;
+	cursor: pointer;
+	color: #fff;
+	background-color: #09f !important;
+}
+/*
+#closeStagePathSelector::after,
+#ECnoPathBtn::after,
+#BWnoPathBtn::after,
+.BWnoPathBtn::after,
+#BWnoBrickwallBtn:after{
+	content: '\2716';
+	padding: 0.5em;	
+	width: 4em;	
+	color: #000;	
+
+}	
+
+#ECnoPathBtn,
+#BWnoPathBtn,
+#BWnoBrickwallBtn,
+.BWnoPathBtn{
+	min-width: 50px;
+	background-color: #f90 !important;
+	text-align: center;
+  border: 2px outset #999;
+	cursor: pointer;
+	float: right;
+	text-decoration: none !important;
+}	
+*/
+#stg-ed-tabs{
+  /*! position: relative; */
+	width: 100%;
+	height: 100%;		
+  /*! margin-left: 50%; */
+}
+
+#stg-ed-tabs-4{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+#stages_sprites_list_container{
+	position: absolute;
+	top: 2em;
+	height: 100%;
+	width: 200px;
+}
+
+#stages_sprites_list{
+	position: absolute;
+	width: 100%;	
+	height:50%;
+	overflow: auto;
+	background-color: #ffc;
+	border: 0.5em #09f solid;
+	padding: 1em;
+	list-style: none
+}
+
+#stage_brickwall_list_container{
+	position: absolute;
+	left: 1em;
+	top: 204px;
+	height: 290px;
+	width: 95%;
+	overflow-y: auto;
+	background-color: #fff;
+	border: outset 2px #999;
+}
+
+#stage_brickwall_list_container a.delete_brickwall{
+	display: none
+}
+
+#stage_brickwall_list_container .select_brickwall{
+	display: block;
+	width: 100%;	
+}
+
+#stg-ed-tabs-4 {	
+	width: 100%;
+}
+
+#stage_brickwall_inputs{
+	position: absolute;
+	top: 3.5em;
+	left: 0em;
+	background-color: #ccc;
+	padding: 1.5em 0;
+	margin-left: 1em;
+	padding: 1em;
+	width: 90%;
+}
+
+#stages_list{
+	list-style: none
+}
+
+.select_stage{
+	text-decoration: none;
+	vertical-align: middle
+}
+
+.select_stage .jsonObjectDescription{
+	display: inline-block !important;
+	/*! clear: both; */
+	width: 30% !important;
+}
+
+#stage_preview_container{
+	z-index:5;
+	position: absolute;	
+	background-color: #aaa;
+	height: 90%;
+	width: 50%;
+	overflow-y: auto;
+	display: block;
+	margin-top: 0%;
+}
+
+#stage_preview{
+	margin: 0 auto;
+	background-color: rgb(128,128,128);
+	width: 400px;
+	height: 700px;	
+	display: block;
+}
+
+#stage_timeline_container{
+	position: relative; 
+	margin-top: -100px; 
+	z-index: 6;
+	bottom: 0px;
+	left: 200px;
+	width: 400px;
+	height: 100px;
+	background-color: #ccc;
+	overflow: hidden;
+	top: 80%;
+}
+
+#stage_timeline{
+	width: 100%;
+	height: 100%;
+	background-color: #ccc;
+}
+
+#timeline_controls{
+	/*! position: absolute; */
+	/*! margin: 0 -30%; */
+	/*! width: 60%; */
+	/*! left: 50%; */
+	background-color: silver;
+}
+
+
+#playTimeLineBtn,
+#pauseTimeLineBtn,
+#stopTimeLineBtn,
+#stepDown,
+#stepUp{
+	text-decoration: none;
+	line-height: 1.5em;
+	padding: 0.25em;
+	border: thin solid #000;	
+}
+
+#stepDown,
+#stepUp{
+	border-color: #000;
+	color: #000;
+	font-weight: bold;	
+}
+
+#stepDown:hover,
+#stepUp:hover{
+	background-color: orange;
+}
+
+
+#stepDown{ margin-left: 2em }
+
+#playTimeLineBtn:hover,
+#pauseTimeLineBtn:hover,
+#stopTimeLineBtn:hover{
+	background-color: yellowgreen
+}
+
+#stageNthFrameC,#timeUnitC{
+	width: 5em;
+	line-height: 1.5em;
+	padding: 0.25em;
+}
+
+#stage_timeline_container{
+	text-align: center
+}
+
+
+#timeline_canvas {
+    width: 400px;
+    /*! height: 3em; */
+    background-color: #000;
+    /*! margin-top: 2em; */
+}
+
+ul.entityCannonFrm{
+	list-style: none;
+}
+
+ul.entityCannonFrm li > *{
+	width: 48%;
+	display: inline-block;
+}
+
+li.frmSplit{
+	display:block;
+	border-top: thin yellowgreen solid;
+	padding-bottom: 1em;
+	margin-top: 1em;
+}
+
+li.frmSplit:after{
+	padding-top: 1em;
+	display: block;
+	content: attr(data-title);
+  font-weight: bold
+}
+
+
+.delete_ec, .edit_ec_states {
+  text-decoration: none;
+  position: absolute;
+  background-color: rgba(154,0,0,0.5);
+  width: 0.5em;
+  text-align: center;
+  line-height: 0.5em;
+  padding: 0.2em;
+}
+
+.delete_ec:hover {
+  background-color: rgba(154,0,0,1);
+  color: #fff
+}
+
+.edit_ec_states{
+  margin-top: -0.9em;
+	margin-left: -100%;
+  background-color: rgba(0,128,255,1) ;
+	width: 3em;
+	color: #fff
+}
+
+.edit_ec_states:hover {
+  background-color: rgba(0,50,255,1);
+  color: #fff
+}
+
+
+#infiniteLoopBtn, #infiniteIterationsLoopBtn{	 
+	 position: relative;
+	 top: -8px;
+	 text-decoration: none;	 
+	 font-size: 1.8em; 
+	 vertical-align: middle;
+	 width: 1.5em;
+   display: block;
+	 background-color: yellowgreen;
+	 /*! color: #fff; */
+	 float: right;
+	 margin-right: 0.25em;
+	 text-align: center;
+	 border: 2px outset #999;
+	/*border-radius: 0.5em*/
+ }
+
+#stage_ec_manager_container{
+	/*! position: absolute; */
+	/*! z-index: 5; */
+	/*! top: 0; */
+	/*! left: 0; */
+	width: 92%;
+	height: 100%;
+	background-color: #ccc;
+	/*! display: block; */
+	/*! overflow: visible; */
+	/*! border: 0.5em #09f solid; */
+	/*! padding: 1em; */
+}
+
+#stage_ec_manager{
+  overflow:hidden;
+  height: 70%;
+  /*! font-family: Calibri; */
+  /* pointer-events: none; */
+  padding: 0 !important;
+}
+
+#ec_list{
+  overflow-y: scroll;
+  height: calc( 100% - 0em);
+  overflow-x: hidden;
+}
+
+ul.li_ec{display: block; /*! background: red */}
+
+
+ul.li_ec > li{
+	min-height: 4em;
+	/* BELOW TO COMPACT DISPLAY */
+	width: 8em;
+    display: inline-block;
+    font-size: 10px;
+    vertical-align: bottom;
+    padding: 0.5em;
+}
+
+.showECThisName .img,
+.showECThisName .lbl{
+	display: inline-block;
+	/* UNCOMMENT FOR LINE DISPLAY
+	width: 30%; */
+	width: 80%;
+}
+
+.showECThisName .lbl{
+	/* UNCOMMENT FOR LINE DISPLAY
+	left: 30%; */
+}
+/* UNCOMMENT FOR LINE DISPLAY
+.li_ec span.count{
+	font-size: 1em;
+	background-color: #fff !important;
+	width: 1.5em;
+    line-height: 1.5em;
+	height: 1.5em;
+	display: inline-block;
+	text-align: center;  float: right;	
+	
+	border-radius: 0.5em;
+	font-weight: bold;
+	color: blue;
+	border: thin solid #000;
+}*/
+
+
+.li_ec span.count{
+	font-size: 1em;
+	
+	background-color: #fff !important;
+	width: 1.5em;
+    line-height: 1.5em;
+	height: 1.5em;
+	display: block;
+	float: right;
+	text-align: center;
+	 
+	border-radius: 0.5em;
+	font-weight: bold;
+	color: blue;
+	border: thin solid #000;
+}
+
+li.EC_btns{
+	display: block !important;
+	width: 100% !important;
+	background-color: aqua;
+	border-bottom: 1px solid #000;
+	border-top: 1px solid #fff;
+}
+
+
+#stage_ec_manager img{
+  max-width: 50px;
+  max-height: 50px;  
+}
+
+#stage_ec_manager img.ECImgClone{
+  max-width: 30px  
+}
+
+
+#stage_ec_manager #ec_list li .ec_count,
+#stage_path{
+	cursor: pointer !important;
+}
+
+#ec_list>li{	
+  border-bottom: 1px solid blue
+}
+
+	
+
+#ec_list>li:nth-child(odd){	
+  background-color: lightblue	
+}
+#ec_list>li:nth-child(even){	
+  background-color: skyblue	
+}
+
+#stage_ec_manager #ec_list li ul li:not(.EC_btns):hover {
+	background-color: #fc5;
+}
+
+span.ec_count, span.li_ec{
+	display:inline-block;
+	height: 100%;	
+}
+
+span.ec_count{
+	 /*! font-size: 2em; */
+	/*! height: 4em; */
+	 line-height: 2em;
+	 width: 100%;
+	 text-indent: 0.5em;
+	 background-color: #09f;
+	 color: #fff;
+	 font-weight: bold;
+}
+
+
+li.EC_btns{}
+
+#stage_ec_manager_close{
+	position: absolute;
+	top: -2.5em;
+	right: 0;
+	padding: 0.5em;
+	cursor: pointer;	
+	color: #fff;	
+	background-color: #09f !important;	
+	text-decoration: none;
+}
+
+#stage_ec_manager_close:after{
+	content: '\2716';
+	padding: 0.5em;	
+	width: 4em;	
+	color: #fff;	
+	
+}	
+
+.seconds{
+	float: right;
+	color: magenta;
+	font-weight: bold;
+	padding: 0 0.5em
+}
+
+/*
+  PATH SELECTION -- begin
+*/
+/*
+#stage_BW_path_selector,
+#stage_brickwall_name_selector
+{
+  z-index:2;
+   width: 400px !important;
+  background-color: #888;
+  overflow: visible;
+}
+*/
+#stage_BW_path_selector ul.paths_list, 
+#stage_brickwall_name_selector ul.brickwalls_list {
+    height: 100% !important;
+    width: 100% !important;
+    overflow-y: auto !important;    
+}
+
+label[for="entity_path"] .path_thumb{
+	height: 200px !important;
+	float: right
+}
+
+#closeStageBWPathSelector,
+#BWCloseBWSelector
+{
+  z-index: 2;
+	position: absolute;
+	top: -2em;
+	right: 0;
+	padding: 0.5em;
+	cursor: pointer;	
+	color: #fff;	
+	background-color: #09f !important;	
+}
+
+#closeEntityPathSelector::after,
+#noPathBtn::after,
+#closeEntitySpritesSelector:after,
+#BWCloseEntityPathSelector:after,
+#BWCloseBWSelector:after{
+	content: '\2716';
+	padding: 0.5em;	
+	width: 4em;	
+	color: #fff;	
+	
+}	
+
+#noPathBtn{
+	display: inline-block;
+	padding: 0.5em;
+	margin: 0 2em;
+	min-width: 80px;
+	background-color: #f90 !important;
+	text-align: center;
+	border: 2px outset #999;
+}	
+
+/*
+  PATH SELECTION -- end
+*/
+
+#stage_BW_path,
+#stage_brickwall_name,
+.spriteName.sprite_selector,
+#stage_music
+{
+	cursor: pointer	
+}
+
+#entityCannonFrm .openStatesManager {
+	padding-right: 0;
+	padding-left: 0
+}
+
+#stage_BW_pathEnd-button {
+    width: 18%;
+}
+
+/*
+
+	STAGE SCROLLINGS EDITION -- begin
+
+*/
+
+/*div#scrollingsContainer,
+div#objectivesContainer,*/
+.halfPanelStyle{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* overflow: hidden; */
+  /* background-color: yellow; */
+  z-index: 6;
+  /*! overflow-x: auto; */
+}
+
+/*ul#scrollingsContainerList,
+ul#objectivesContainerList*/
+.halfPanelStyle > ul{
+	position: absolute;
+	width: 100%;
+	height: 600px;
+	display: flex;
+	background-color: #444;
+	/* overflow-y: hidden; */
+	height: auto;
+	overflow-y: scroll;
+}
+
+/*ul#scrollingsContainerList li.parallax,
+ul#objectivesContainerList > li*/
+.halfPanelStyle > ul > li{
+  min-width: 360px !important;
+	max-width: 360px !important;
+	display: block;
+	float: left;
+	color: #fff;
+  /*! background-color: olive; */
+}
+
+.screensContainer{
+  width: 100%;		
+	height: 500px;
+	display: block;			
+  /*background-color: orange;*/
+	overflow-y: auto
+}
+
+.screenContainer{
+  width: 100%;		
+	display: block;			  
+}
+
+.parallax .parallaxHeader,
+.objective .objectiveHeader{	
+	display: block;
+	background-color: lightblue;
+	color: #000
+}
+
+.parallax .parallaxHeader .title,
+.objective .objectiveHeader .title{	
+	line-height: 2em;
+	background-color: #09f;
+	display: inline-block;
+	width: calc( 100% - 2.5em);
+}
+
+.removeParallaxBtn,
+.removeObjectiveBtn{
+	text-decoration: none;
+	border: 1px solid #fff;
+	display: inline-block;
+	width: 1.5em;
+	text-align: center;
+	color: #fff;
+  background-color: #444;
+	font-size: 1.5em
+}
+
+
+.screensToScroll{}
+.screensScrollSpeed{}
+
+.parallax .parallaxHeader label{
+	width: 50%;
+	display: inline-block;
+}
+
+.screensToScroll.ui-spinner-input,
+.screensScrollSpeed.ui-spinner-input{
+	width: 3em
+}
+
+
+.parallax .addScreenToParallaxBtn{
+	position: absolute;
+	z-index:2;
+	top: calc( 100% - 3em);
+	width: 5em;
+}
+   
+.screenContainer{
+  height: 200px;	
+}
+
+.screenContainer:nth-child(even){
+  background-color: #444
+}
+
+.screenContainer:nth-child(odd){
+  background-color: #333
+}
+
+.screenContainer >*:not(img):not(a){
+	width: 50% !important;
+	max-width: 50% !important;
+	min-width: 50% !important;	
+	float: left;
+	display: block;
+  clear: left; 	
+}
+
+.screenContainer > .sprite_selector{
+	height: 2em;	
+}
+
+.screenContainer > img{
+	float: right;
+	width: 35% !important;
+	max-height: 200px;
+}
+
+.removeScreenBtn{
+	text-decoration: none;
+	border: 1px solid #fff;
+	display: inline-block;
+	float: left;
+	clear: none !important;
+	width: 1.5em !important;  
+	text-align: center;
+	color: #fff;
+	font-size: 1.5em
+}
+
+.removeScreenBtn{
+	background-color: #777
+}
+
+.removeScreenBtn:hover,
+.removeParallaxBtn:hover{
+	background-color: red
+}
+
+.screenContainerHeader{
+	background-color: lightgrey;
+	cursor: move
+}
+
+.screenContainerHeader .ui-icon{
+  float: right;
+	display: block;
+	vertical-align: middle;
+	margin-top: 0.3em
+}
+/*
+
+	STAGE SCROLLINGS EDITION -- end
+
+*/
+
+/*
+
+	STAGE OBJECTIVES EDITION -- begin
+
+*/
+
+.objectiveHeader{cursor: move}
+
+.objectiveFeaturesContainer > *{
+	width: 48%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.objectiveFeaturesContainer > ul{
+	margin-top: 2em;
+	margin-bottom: 2em;
+}
+
+.objectiveTypeContainer{
+ width: 100%;
+ display: block;
+}
+
+/*
+  THERE CAN BE ONLY ONE PER STAGES EDITOR
+  SINCE THERE IS ONLY ONE OBJECTIVE OF A TYPE PER STAGE
+*/
+
+#objectiveTargetControls{
+	
+}
+
+ul#objectiveTargets,
+ul#objectiveEscortees
+{
+	width: 100%;
+}
+
+ul#objectiveTargets li.objectiveTargetLi{
+	/*background: lime*/
+}
+
+ul#objectiveTargets li.objectiveTargetLi input,
+ul#objectiveEscortees li.objectiveEscorteeLi input{
+	cursor: pointer;
+	margin: 0;
+}
+
+.objectiveEscorteeLi,
+.objectiveTargetLi{
+    /*display: block;*/
+    clear: both
+
+}
+
+.objectiveTargetLi img{
+	max-height: 100px;
+	max-width: 100px;
+	float: left;
+}
+
+.objectiveTargetLi{
+	float: left
+}
+
+ul#objectiveTargets li.objectiveTargetLi:nth-child(odd){
+	background-color: #888
+}
+
+ul#objectiveTargets li.objectiveTargetLi:nth-child(even){
+	background-color: #555
+}
+
+.removeTarget{float: right}
+
+.ui-spinner-input[name="count"]{
+	width: 50px;	
+	
+}
+
+.selectTargetEntity{
+
+line-height: 2em;
+
+text-indent: 2em;
+}
+
+.objectiveTmbContainer{
+	height: 100px;
+	display: inline-block;
+	float: left;
+}
+
+
+.objectiveTargetLi .objectiveTmbContainer,
+.objectiveEscorteeLi .objectiveTmbContainer{
+	width: 100px;
+}
+/*
+
+	STAGE OBJECTIVES EDITION -- end
+
+*/
+
+
+
+input#stage_music{
+	width: 25em !important;
+}
+
+/*
+  spawnBalls - begin
+*/
+#stageEntityBtn,
+.addSpawnBall{
+		text-decoration: none;
+		padding: 0.5em;
+		font-variant: all-petite-caps;
+		color: #000;
+		display: inline-block;
+		border: thin #f90 solid;
+		margin: 0.5em;
+		background-color: #f90;
+	}
+
+#spawnBallsContainer{
+	display: block;
+	width: 100%;
+	height: 4em;
+	overflow: hidden;	
+}
+
+ul#spawnBallsList{	
+	display: inline-block;	
+	width: 50%;
+	height: 3em;
+	overflow-y: hidden;
+	overflow-x: auto;
+	background-color: orange;
+	white-space: nowrap;
+	vertical-align: bottom
+}
+
+#spawnBallsList li{
+	vertical-align: top;
+	display: inline-block;
+	/* width: 10em; */
+	/* height: 100%; */
+	background-color: cyan
+/*	overflow: hidden;; */;
+	line-height: 2em;
+	margin: 0 0.5em 0 0;
+}
+
+#spawnBallsList li *{
+	display: inline-block;
+	max-width: 30%;
+	max-height: 2em;
+	vertical-align: top;
+}
+
+/*
+  spawnBalls - end
+*/
+
+
+#emptyFramesControl{
+    width: 120px;
+    display: inline-block;
+    vertical-align: 0.8em;
+    color: #09f;
+    border-color: #09f;
+    padding-left: 0.2em;
+    padding-right: 0.2em
+}
+
+#emptyFramesControl legend{
+    text-align: center
+}
+
+#emptyFramesControl a{
+    width: 48%;
+    display: block;
+    float: left;
+    padding: 0px !important;
+    margin: 0px !important;
+   /* background-color:  #000;
+    color: #fff;*/
+    text-align: center;
+    text-decoration: none
+}
+
+#emptyFramesControl a.selected{
+    background-color:  #ffc;
+    color: #000;
+    font-weight: bold
+}
+
+
+.removeSpawnBallBtn{
+	text-decoration: none;
+	font-weight: bold;
+	padding: 0 0.5em;
+}
+
+div#stages_list_container {
+    overflow: auto;
+    height: 90%;
+}
+
+.shootable {   
+   border: tomato 0.2em solid;  
+}
+
+
+
+div#liveUpdateContainer {
+    position: fixed;    
+    background-color: rgba(0,0,0,0.2);
+    padding: 1em;
+    border-radius: 0.5em;
+    z-index: 100;
+    width: 110px;
+    border: 2px outset #fff
+}
+
+div#liveUpdateContainer:before {
+    content:'live editor';
+    top: 0;
+    left: 0;
+    width: 100%;
+    margin: -1.5em auto;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    position: absolute;
+    border-radius: 0.25em;
+}
+
+input#goToTimeUnit {
+    width: 60px;
+}
+
+/* Angel Squad Editor: main loop var debug -- begin */
+
+#gameTestFrmContainer span{
+    display: inline-block;
+    position: relative;
+    width: 24%;
+}
+
+#gameTestFrmContainer span:before{
+    content: attr(id);
+    display: block;
+}
+
+
+/* Angel Squad Editor: main loop var debug -- end */
+
+
+
+li.EC_btns .delete_ec{
+     position: relative !important; 
+     display: inline-block;
+     width: 1em;
+     height: 1em;
+     line-height: 1em;
+     vertical-align: text-bottom;
+     margin-right: 1em;
+     margin-bottom: 1em;
+     background-color: red !important;
+     border-radius: 2em;
+}
+
+li.EC_btns .delete_ec:after{
+    content:'\00274C';
+}
+
+
+/*  
+    TEST IFRAME
+*/
+.custom-ui-widget-test-app .ui-dialog-titlebar {   
+    top: -5px;
+    left: -5px;   
+    padding: 0px !important;
+    margin: 0px !important;        
+}
+
+.custom-ui-widget-test-app .ui-button.ui-corner-all.ui-widget.ui-button-icon-only.ui-dialog-titlebar-close {
+   /* display: none;*/
+}
+
+#gameTestFrmContainer{
+    overflow: hidden
+}

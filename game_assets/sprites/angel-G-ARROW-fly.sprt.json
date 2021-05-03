@@ -1,0 +1,13 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "angel-G-ARROW-fly.sprt",
+    "src": "game_assets/images/angel-Golden-ARROW-fly320x75.png?t=1609338197",
+    "width": 80,
+    "height": 75,
+    "positions": [[0,0],[80,0],[160,0],[240,0]],
+    "frame": 0,
+    "frameMax": 3,
+    "frameTicker": 0,
+    "nextFrameAt": 12,
+    "hitboxes": ""
+}

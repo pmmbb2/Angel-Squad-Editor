@@ -1,0 +1,13 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "great-white-attack-down.sprt",
+    "src": "game_assets/images/great-white-attack-up-down-560x250.png?t=1606365991",
+    "width": 140,
+    "height": 250,
+    "positions": [[280,0],[420,0]],
+    "frame": 0,
+    "frameMax": 1,
+    "frameTicker": 0,
+    "nextFrameAt": 48,
+    "hitboxes": [{"x":25,"y":75,"h":145,"w":83,"idx":0},{"x":44,"y":43,"h":200,"w":49,"idx":1}]
+}

@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "collision-16x16.sprt",
+    "src": "game_assets/images/collision-16x16.png?t=1582588172",
+    "width": 16,
+    "height": 16,
+    "positions": [[0,0],[0,0]],
+    "frame": 0,
+    "frameMax": 1,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

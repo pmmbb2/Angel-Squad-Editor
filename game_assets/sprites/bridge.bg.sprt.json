@@ -1,0 +1,11 @@
+{
+    "name": "bridge.bg.sprt",
+    "src": "game_assets/images/bridge-water-bg.sprite.png?t=1581109560",
+    "width": 360,
+    "height": 200,
+    "positions": [[0,0],[0,0]],
+    "frame": 0,
+    "frameMax": 1,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

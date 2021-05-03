@@ -1,0 +1,195 @@
+/*
+  BRICKWALLS EDITOR
+*/
+
+#brickwalls_editor{z-index: 4;}	
+
+#brickwall_ed_frm{
+	/*! position: absolute; */
+	/*! right: 0; */
+	/*! top: 1.5em; */
+	/*! width: 50%; */
+	/*! height: 100%; */	
+}
+
+#BW-ed-tabs-3{
+	width: 30em;
+	
+	overflow-x: hidden;
+}
+
+#BW-ed-tabs-3 label:not(.customStyle),
+#BW-ed-tabs-3 input:not(.customStyle),
+#BW-ed-tabs-3 textarea
+{
+	width: 48% !important;
+	display: inline-block;	
+}
+
+
+#brickwall_canvas, 
+#brickwall_nrg_canvas,
+#brickwalls_editor .tools{	
+	/*float: left;*/
+	position: absolute;
+	top: 1.5em;
+	margin: 0;
+	padding: 0;
+}
+
+#brickwall_canvas{
+	z-index: 2
+}
+
+#brickwall_nrg_canvas{
+	z-index: 1
+}
+
+#brickwalls_editor .tools{
+	top: 1.5em;
+	left: 20%;	
+	padding: 2em 0.5em;
+	border: 0.2em outset #09f;
+	display: block;
+	background-color: #eee;
+	z-index: 3;
+	height: 20px;
+	width: 220px;
+}
+
+#draggable_tools{
+	color: #09f;
+	text-decoration: none;
+	font-variant: all-small-caps;	
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+#brickOrEnergyToggle{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+
+#result{
+	display: none;	
+}
+
+#energy{
+	clear: both;	
+	display: block;
+	float: none;
+	width: 5em
+}
+
+#BW-ed-tabs{
+	 z-index: 2;
+	 position: absolute;
+	 right: 0;	 
+	 top: 0;
+	 border: #09f thin solid;	
+	 top: 1.5em;
+	 width: 50%;	 
+	 height: 90%;
+	 overflow: hidden;
+	 background-color: #555 !important;
+}
+
+
+#BW-ed-tabs div:not(#BW-ed-tabs-3){
+	width: 100%;  
+	height: 100%;
+	overflow-y: auto;
+	display: block; 
+	background-color: #555 !important;
+}
+
+#BW-ed-tabs div > div,
+#BW-ed-tabs-3{
+	height: 90%;
+  overflow-y: auto;
+	display: block;
+  
+}
+
+#BW-ed-tabs div > div:not(#colorWatchesContainer){
+	 position: absolute;
+   z-index: 2;	
+	 height: 80%;
+   width: 95%;
+}
+
+#BW-ed-tabs-3{
+   z-index: 2;
+	 position: absolute;
+	 height: 80%;
+   width: 90%;
+	background-color: #555 !important;
+}
+
+#BW-ed-tabs-3 label, h3, h4
+{
+	color: #fff
+}
+
+#BW-ed-tabs-3 > *
+{
+	margin: 0.25em
+}
+
+#result{
+	color: #fff;
+	background-color: #000 !important;
+	padding: 1em;
+	height: 2em !important;
+	display: block;
+}
+
+#colorWatchesContainer{
+	width: 100%;
+}
+
+.color_select.selected::after{
+	position: absolute;
+	content: '\2714';
+	display: block;
+	width: 25px;
+	height: 25px;
+	margin-left: 12.5px; 
+	margin-top: 12.5px;
+	text-align: center;
+	line-height: 25px;
+	background-color: rgba(254,254,254,1);
+	border: thin solid #000;
+	border-radius: 0.5em
+}
+
+
+.brickwalls_list li{
+	list-style: none
+}
+
+.brickwalls_list li *{
+	vertical-align: top;
+	margin-bottom: 1em
+}
+
+.ui-draggable-handle{
+	 cursor: move
+}
+
+#brickwall_canvas,
+#brickwall_nrg_canvas{
+	 cursor: cell 
+}
+	
+
+.tools h6{
+	position: absolute;
+	top: 0;
+	line-height: 1.5em;	
+	font-size: 1em;	
+}
+

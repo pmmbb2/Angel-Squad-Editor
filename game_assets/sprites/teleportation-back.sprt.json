@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "teleportation-back.sprt",
+    "src": "game_assets/images/teleportation-spritesheet-sheet.png?t=1594084216",
+    "width": 90,
+    "height": 700,
+    "positions": [[450,0],[360,0],[270,0],[180,0],[90,0],[0,0]],
+    "frame": 0,
+    "frameMax": 5,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

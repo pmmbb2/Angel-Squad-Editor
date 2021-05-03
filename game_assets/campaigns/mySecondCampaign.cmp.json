@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/campaigns",
+    "name": "mySecondCampaign.cmp",
+    "title": "Cupid has disappeared!",
+    "description": "Where is Cupid? Nobody can find him.  Let's investigate.",
+    "stages": ["myFifthStage.stg","myFirstStage.stg","myFourthStage.stg","mySixthStage.stg","mySecondStage.stg"],
+    "sprites": ["angel-archer.sprt"],
+    "brickwalls": ["4x4x4x50-blue.brickwall","brickman.brickwall","brickwalltestImage","fish2.brickwall","redhead.brickwall"],
+    "entities": ["angel-portal-powerup.ent","angel.ball.ent","badBoy.ent","ball.entity","combo-star-100x500.ent","forest1.ent","disappear-600x100.ent"],
+    "paths": ["anotherPastTest.path.rel","anotherPastTest.rel"],
+    "sounds": ["bgm_3-loop","bgm_10-loop","bgm_4-loop","bgm_6-loop","bgm_7-loop","bgm_2-loop"]
+}

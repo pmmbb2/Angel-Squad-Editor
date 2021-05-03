@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "waves-64x64.sprt",
+    "src": "game_assets/images/waves-spritesheet.png?t=1593631685",
+    "width": 64,
+    "height": 64,
+    "positions": [[0,0],[64,0],[128,0],[192,0],[128,0],[64,0]],
+    "frame": 0,
+    "frameMax": 5,
+    "frameTicker": 0,
+    "nextFrameAt": 24
+}

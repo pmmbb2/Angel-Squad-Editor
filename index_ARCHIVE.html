@@ -1,0 +1,2940 @@
+<!doctype html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	
+	<link href='jquery-ui-1.12.1/jquery-ui.css'  type="text/css" rel="stylesheet" />  
+	
+	<link href='css/ui-lightness/jquery-ui-1.10.3.min.css' type="text/css" rel="stylesheet" /><!---->
+	
+	
+	<style type='text/css'>
+
+	
+	
+	
+	
+	
+		
+	*{margin:0 ;padding: 0; font-family: Helvetica, Georgia, Verdana, Sans serif;}
+
+#body{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;	
+	background-color: gray;
+}	
+
+
+	h3{
+		width: 100% !important;
+	}
+	
+		.handle{
+			position:absolute;
+			top:0;
+			left:0;
+			width: 100%;
+			/*! height: 1em; */
+			background-color: #000;
+		}
+		
+		.customWindow{
+			padding-top: 1.5em;
+			display: block;
+			height: 80%;
+			width: 80%;
+			background-color: #ddc;			
+		}
+		
+		.customWindow, .customWindow>*{
+			/*! position: absolute; */
+			overflow: auto;			
+		}	
+		
+		.handle button{
+			float: right;
+			border: none
+		 }
+	  
+    .handle .title{			
+			width: 100px;
+			color: #fff
+		}
+
+	.delete_sprite,
+  .delete_path, 
+  .delete_brickwall,
+  .delete_entity{
+	  float: right;
+	  display: inline-block;
+	  width: 2em;
+	  height: 2em;
+	  background-color: red;
+	  text-align: center;
+	  text-decoration: none;
+	  line-height: 2em;
+	  color: #fff !important;
+	}
+	
+  .delete_sprite:hover,
+  .delete_path:hover, 
+  .delete_brickwall:hover,
+  .delete_entity:hover{
+		  background-color: magenta;
+			color: #fff !important;
+		  /*border: thin crimson solid;*/
+			vertical-align: middle;
+  }
+  
+  .delete_path,   
+  .delete_entity{
+		position: absolute;
+		/*! margin-left: 200px; */
+		/*! float: none; */
+  }
+
+
+.select_sprite{
+	height: 2em;
+	line-height: 2em;
+	display: inline-block;
+	
+}
+
+	.loader {	   	  
+	  border: 16px solid #09f;
+	  border-radius: 30px;
+	 /* border-top: 10px inset #09f;
+	  border-bottom: 10px outset #09f;*/
+	  width: 60px;
+	  height: 60px;
+	  background-color: white;
+	  padding: 0.5em
+	 
+	  -webkit-animation: spin 2s linear infinite;
+	  animation: spin 2s linear infinite;	  
+	}
+
+	@-webkit-keyframes spin {
+	  0% { -webkit-transform: rotate(0deg); }
+	  100% { -webkit-transform: rotate(360deg); }
+	}
+
+	@keyframes spin {
+	  0% { transform: rotate(0deg); }
+	  100% { transform: rotate(360deg); }
+	}
+	
+	/*#loader{opacity:0; display: block}*/
+	
+	#minimized_windows{position: absolute; z-index: 1}
+
+#minimized_windows .customWindow{
+	height: 0em !important;
+	overflow: hidden !important;
+	
+}
+	
+form > label:not(.customStyle), 
+form > input:not(.customStyle), 
+form > textarea:not(.customStyle){
+	width: 48%;
+	display: inline-block;
+}
+
+
+
+#snapshot_canvas{
+	position: absolute;
+	top: -100%;	
+}	
+
+#sprites_list li{
+  list-style: none;
+  /*! margin: 1em 0; */
+	/*! border: thin solid #000; */
+}
+
+
+#sprites_list li a.select_sprite{
+	/*! display: block; */
+	/*! height: 2em; */
+	/*! text-decoration: none; */
+	/*! background-color: purple */
+}
+
+.select_sprite{
+  min-width: 80%;	
+	border: thin #000 solid;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.2em;
+	width: 100%;
+	height: 100%
+}
+
+a.select_sprite:hover{
+	background-color: yellowgreen
+}
+
+
+#sprites_list li a span.spriteLbl{
+	line-height: 2em;
+	height: 2em;
+	/*! color: red; */
+	display: block;
+	/*! background-color: yellow */
+	font-weight: bold;
+}
+.ui-draggable-handle{cursor:move}
+	
+#paths_list .jsonObjectDescription,
+.brickwalls_list .jsonObjectDescription,
+#entities_list_container .entities_list .jsonObjectDescription{
+	width: 33%;
+	display: inline-block;
+	background-color: #ccc;
+	padding: 1em;
+	vertical-align: top;	
+}	
+
+#entities_list_container .entities_list .jsonObjectDescription
+{
+	width: 20%;
+}
+
+
+.brickwalls_list .jsonObjectDescription
+{
+	width: 29%;
+}
+
+#stages_entities_list_container .jsonObjectDescription{
+	width: 28%;
+	overflow-y: auto;
+	display: inline-block;
+	height: 3em;
+	background-color: #bbb;
+}
+
+#stage_brickwall_list_container .select_brickwall{
+		
+}
+
+#paths_list .pathLbl,
+.brickwalls_list .BWLbl,
+#entities_list_container .entities_list .entityLbl,
+#entities_list_container .entities_list .entityThumb,
+#stages_entities_list_container .entities_list .entityLbl,
+#stages_entities_list_container .entities_list .entityThumb{
+	width: 30%;
+	display: inline-block;
+	background-color: #aaa;
+	padding: 0.5em;
+	vertical-align: top;
+	overflow: hidden
+}	
+
+#stages_entities_list_container .entities_list li{		
+	border-bottom: thin solid #444;	
+}	
+
+#stages_entities_list_container .entities_list li:nth-child(odd){ 		
+  background-color: #ccc;
+}
+
+#stages_entities_list_container .entities_list li:nth-child(even){
+	background-color: #999;
+}
+
+#stages_entities_list_container .entities_list .entityThumb{	
+	background-color: #ddd;	
+	/*border: thin solid #444*/
+}	
+
+
+#entities_list_container .entities_list .entityThumb{
+	background-color: #ddd;
+	border: thin solid #444
+}
+
+#entities_list_container .entities_list .entityThumb img{
+	max-height: 100%;
+}
+
+input:active,
+textarea:active,
+input:focus,
+textarea:focus{background-color: yellowgreen !important;
+}	
+	
+.select_image{
+	max-width: 200px;
+	overflow-x: auto
+}	
+
+/*
+	REFRESH IMAGES LIST (sprites & brickwalls)
+*/
+.refreshImagesListBtn, #stage_ec_manager_refresh {
+  text-decoration :none;
+  padding: 0.5em;
+  font-variant: all-petite-caps; 
+  color: #09f !important;
+  display: inline-block;
+  border: thin #09f solid;
+  margin: 0.5em;
+   background-color: #ccc
+}
+
+.refreshImagesListBtn:hover, #stage_ec_manager_refresh:hover {
+  background-color: #ffc
+}
+
+.refreshImagesListBtn::after, #stage_ec_manager_refresh::after {
+  content: '\21ba';
+}
+	
+
+
+a.select_brickwall img{
+  	max-width: 100px
+}
+
+	
+	
+	
+	
+	
+	
+	</style>
+
+	
+	<script type='text/javascript' src='js/jquery-2.1.4.min.js'></script>
+	<!-- <script type='text/javascript' src='js/jquery-ui-1.10.3.custom.min.js'></script> -->
+	<script type='text/javascript' src='jquery-ui-1.12.1/jquery-ui.js'></script>
+	
+	<script type='text/javascript' src='js/html2canvas.min.js'></script>
+	
+	
+	<script type='text/javascript'>
+	
+	/*
+		GLOBALs 
+	*/
+	var destination_dir = {
+		'sprites': 'game_assets/sprites',
+		'paths': 'game_assets/paths',
+		'brickwalls': 'game_assets/brickwalls',
+		'entities': 'game_assets/entities',
+		'stages': 'game_assets/stages'
+	},
+	// USED BY stages_editor
+	entityCannons = [],
+	stageNthFrame = 0,
+	startMax = 0
+	
+	// USED BY mainPreviewSprite()
+	window.spriteReq = '',
+	window.obj = {}
+
+	
+	function load_images_list(){
+	  // REFRESH IMAGES LIST
+	  $('#images_list_container, #BW_images_list_container')
+		.load('./sprites_editor/ #images_list_container .images_list',function(){
+		dialogNotify('images list refreshed')
+	  })
+	}
+
+	$(document)
+	.delegate('.refreshImagesListBtn','click',function(e){
+		e.preventDefault();
+		load_images_list()
+	})
+	
+    /*
+		RETURN HOW MANY subString IN string
+	*/
+	function occurrences(string, subString, allowOverlapping) {
+
+		string += "";
+		subString += "";
+		if (subString.length <= 0) return (string.length + 1);
+
+		var n = 0,
+			pos = 0,
+			step = allowOverlapping ? 1 : subString.length;
+
+		while (true) {
+			pos = string.indexOf(subString, pos);
+			if (pos >= 0) {
+				++n;
+				pos += step;
+			} else break;
+		}
+		return n;
+	}
+
+
+    	
+	
+	function dialogNotify(msg){
+		var dlg = 
+		$('<div/>')
+		.html(msg)
+		.dialog({
+			create:function(){
+				setTimeout(function(){dlg.fadeOut(function(){$(this).remove()})},2000)
+			}
+		})
+	}
+
+	/*
+		preview sprite -- BEGIN
+	*/
+	
+	window.requestAnimationFrame = function () {
+	return window.requestAnimationFrame ||
+	window.webkitRequestAnimationFrame ||
+	window.mozRequestAnimationFrame ||
+	window.msRequestAnimationFrame ||
+	window.oRequestAnimationFrame ||
+	function(f) {
+		//window.setTimeout(f,1e3/60);
+			window.setTimeout(f,1000/60);				
+		}
+		}()
+	window.cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame
+	
+	
+	/*
+		LOAD JSON FILE WITH A CALLBACK FUNCTION
+		-- same funct as in APP
+	*/
+	function load(url, callback) {
+	  var xhr = new XMLHttpRequest();
+	  xhr.onreadystatechange = function() {
+		if (xhr.readyState === 4) {
+		  callback(xhr.response);
+		}
+	  }
+	  xhr.open('GET', url, true);
+	  xhr.send('');
+	}	
+	
+	/*
+		function search()
+		get json object 
+		- from myArray 
+		- which attribute name == nameKey		
+		-- same funct as in APP
+	*/	
+	function search(nameKey, myArray){
+		var i = 0;
+		while ( i <= myArray.length-1 ) {
+			if (myArray[i].name === nameKey) {
+				return myArray[i];
+			}
+			i++
+		}
+	}
+	
+	/*
+		RETURN [EC,index] WHICH ID = ID
+		 - used to remove it from entities
+	*/
+	function searchEcInEntities(ID){
+		var i = 0;
+		while ( i <= entityCannons.length-1 ) {
+			if (entityCannons[i].ID === ID) {
+				return [entityCannons[i],i];
+			}
+			i++
+		}
+	}
+	
+	/*
+		UPDATE startMax ( hightest value of attribute 'start' among ECs )
+	*/	
+	function startMaxUpdate(){  
+		// 1 determine highest start  
+		var n = 0
+		while ( n < entityCannons.length ){
+		if ( entityCannons[n].start > startMax ){
+		startMax = entityCannons[n].start
+		}
+		n++
+	  }// end while    
+	}
+	
+	
+	/*
+		function searchEC()
+		get a collection array of 
+		entities which attribute 'start' equals stageNthFrame
+	*/	
+	function searchEC(){
+		var i = 0,
+			found = [];
+			
+		while ( i <= entityCannons.length-1 ) {
+			if (entityCannons[i].start === stageNthFrame) {
+				 found.push(entityCannons[i]);
+			}
+			i++
+		}			
+		//return JSON.stringify(found)
+		return JSON.stringify(found)
+	}
+	
+	function triggerEntityCannons( found ){
+	
+		console.log(				
+				'triggerEntityCannons(): \r\n found:'+found.found
+				+'\r\n'
+				+'found.length:'+found.found.length	
+				+'\r\n'					
+				//+'entityCannons[n].entityName:'+entityCannons[n].entityName					
+			)
+	
+	
+		for (var n = 0; n < entityCannons.length; n++){	
+			
+			if( (Number(entityCannons[n].iterations) == -1
+				|| Number(entityCannons[n].iterations) > 0)
+				&& Number(entityCannons[n].start == stageNthFrame)
+				){
+				
+				$('#'+entityCannons[n].ID)
+				.css({opacity:1})
+			
+				//spawnEntityFromJson(entityCannons[n].entityName)
+				
+				//dialogNotify(entityCannons[n].entityName)
+				console.log('entityCannons[n].entityName: '+entityCannons[n].entityName)
+				
+				console.log('IS INFINITE: '+Number(entityCannons[n].iterations) == -1)
+				console.log('Math.number: '+Number(entityCannons[n].iterations) == -1)
+				console.log('entityCannons[n].iterations: '+entityCannons[n].iterations)
+				console.log('typeof entityCannons[n].iterations: '+typeof entityCannons[n].iterations)
+				
+				
+				entityCannons[n].start = Number( stageNthFrame + entityCannons[n].next)
+				
+				if( Number(entityCannons[n].iterations) > 0 ){
+					entityCannons[n].iterations = Number(entityCannons[n].iterations) - 1
+				}
+				
+			}
+			else{
+				$('#'+entityCannons[n].ID)
+				.css({opacity:0})
+			}
+		}
+	}
+	
+	function checkEC(){
+	
+		var result = searchEC( stageNthFrame )
+		var found = JSON.parse(result)
+		if( found.length > 0 ){	
+			console.log('stageNthFrame: '+stageNthFrame)
+			console.log('found: '+JSON.stringify(found))
+			triggerEntityCannons( found )
+		}
+	}
+	
+	
+	var lastTime = 0
+	window.mainPreviewStage = function(currentTime){
+		//$('.edit_ec').hide()
+		//checkEC()
+		/*
+		var result = searchEC( stageNthFrame )
+		var found = JSON.parse(result)
+		if( found.length > 0 ){	
+			console.log('stageNthFrame: '+stageNthFrame)
+			console.log('found: '+JSON.stringify(found))
+			triggerEntityCannons( {found:found} )
+		}		
+		*/
+		if (currentTime >= lastTime + 1000)  {
+		// one second has passed, run some code here
+			$('#stageNthFrame').val(stageNthFrame)				
+			triggerEntityCannons( {found:entityCannons} )
+			stageNthFrame++; 
+			update_timeline_ruler()
+			lastTime = currentTime;
+		}
+		
+		
+		if( $('#playTimeLineBtn').is(':hidden') ){		
+			
+			//console.log($('#playTimeLineBtn').is(':hidden'))
+			
+			stageReq = requestAnimationFrame( mainPreviewStage ) 		
+		}	
+		
+	}
+	
+	function update_timeline_ruler() {
+	  redraw_timeline_ruler({
+		startFrom: stageNthFrame,
+		step: 40
+	  })
+			  
+	}
+
+
+	function stepDown(){
+	  stageNthFrame-=2
+			$('#stageNthFrame').val(stageNthFrame)
+			if( typeof stageReq !== 'undefined' ){
+		  cancelAnimationFrame(stageReq)
+		}
+			//update_timeline_ruler() 
+	  
+		if( $('#playTimeLineBtn').is(':hidden')){
+		  $('#pauseTimeLineBtn').hide()
+		  $('#playTimeLineBtn').show()      
+		}
+
+		mainPreviewStage()		
+	}
+
+	function stepUp(){
+	  //stageNthFrame++ 
+		$('#stageNthFrame').val(stageNthFrame)
+		if( typeof stageReq !== 'undefined' ){
+		  cancelAnimationFrame(stageReq)
+		}
+			//update_timeline_ruler() 
+	  
+		if( $('#playTimeLineBtn').is(':hidden')){
+		  $('#pauseTimeLineBtn').hide()
+		  $('#playTimeLineBtn').show()      
+		}
+		mainPreviewStage()
+		
+		
+		
+	}
+
+	$(document)
+	  .delegate('#stepDown','click',function(e){
+	  e.preventDefault()
+	  if( stageNthFrame > 0 ){
+		stepDown()
+	  }
+	})
+
+	$(document)
+	  .delegate('#stepUp','click',function(e){
+	  e.preventDefault()
+	  stepUp()
+	})
+
+	
+	$(document)
+	.delegate('#playTimeLineBtn','click',function(e){
+	  e.preventDefault()
+		$(this).hide()
+		$('#pauseTimeLineBtn').show(mainPreviewStage())
+	})
+	
+	$(document)
+	.delegate('#pauseTimeLineBtn','click',function(e){
+	  e.preventDefault()		
+		if( typeof stageReq !== 'undefined' ){
+		  cancelAnimationFrame(stageReq)
+		}
+		$(this).hide()
+		$('#playTimeLineBtn').show()	  
+	})
+	
+	
+	function resetTimeLime(){
+	
+		stageNthFrame = 0
+		$('#stageNthFrame').val(stageNthFrame)
+		if( typeof stageReq !== 'undefined' ){
+			cancelAnimationFrame(stageReq)
+		}
+		
+		// RESET TO INITIAL VALUE (start has been modified)
+		$.each(entityCannons,function(i,e){
+		
+			console.log("RESET")
+		    console.log(entityCannons[i].start+' '+entityCannons[i].iterations)
+			
+			entityCannons[i].start = entityCannons[i].archiveStart
+			
+			entityCannons[i].iterations 
+			= 
+			( entityCannons[i].archiveIterations < 0 )
+			?Math.abs(entityCannons[i].archiveIterations) * -1
+			:entityCannons[i].archiveIterations
+			
+			console.log(entityCannons[i].start+' '+entityCannons[i].iterations)
+			
+		})
+		
+		update_timeline_ruler() 
+	
+	}
+	
+	
+	
+	$(document)
+	.delegate('#stopTimeLineBtn','click',function(e){
+	  e.preventDefault()
+		resetTimeLime()
+		$('#pauseTimeLineBtn').hide()
+		$('#playTimeLineBtn').show()
+	})
+	
+	/*
+		USED BY PATHS EDITOR & STAGES EDITOR -- begin
+	*/
+	
+	window.drawLine = function(context, x1, y1, x2, y2) {			
+			  context.beginPath();
+			  context.strokeStyle = 'white';
+			  context.lineWidth = 1;
+			  context.moveTo(x1, y1);
+			  context.lineTo(x2, y2);
+			  context.stroke();
+			  context.closePath();
+			  return true
+			}
+	
+	
+	window.draw_axis_ruler = function( paramsObject ){
+			  
+			   // PUBLIC PARAMS
+			  var params = paramsObject
+			  
+			  var canvasId = paramsObject.canvasId,// req
+				  axis = paramsObject.axis ,// req
+				  step = paramsObject.step ,// req           
+				  ftSize = (paramsObject.ftSize)?paramsObject.ftSize:10,
+				  axisDecal =  (paramsObject.axisDecal)?paramsObject.axisDecal:0,
+				  markLengthMax =  (paramsObject.markLengthMax)?paramsObject.markLengthMax:ftSize,
+				  ftName =  (paramsObject.ftName)?paramsObject.ftName:'Officina Sans',
+				  ftColor =  (paramsObject.ftColor)?paramsObject.ftColor:'white',
+				  textValue =  (paramsObject.textValue)?paramsObject.textValue:'nSteps',// units | nStep
+				  startFrom =  (paramsObject.startFrom)?paramsObject.startFrom:0// 0 | any7 number to start counting from
+			  
+			  var canvas = document.getElementById(canvasId);
+			  var ctx = canvas.getContext("2d")	  
+			  
+			  // PRIVATE PARAMS
+			  var cvWidth = canvas.clientWidth,
+				  cvHeight = canvas.clientHeight,  
+				  length,
+				  n = 0,
+				  n_to,
+				  x1, y1,
+				  x2, y2,
+				  tx, ty,
+				  markLength
+				
+			  // GET THE LENGTH OF THE RULER
+			  switch( axis ){
+				case 'x0':
+				case 'x1':
+				   length = cvWidth
+				break;
+				case 'y0':
+				case 'y1':
+				   length = cvHeight
+				break;
+				case 'stage_time_line':
+					length = cvWidth					
+				break;
+			  }
+			/*
+			   length += parseInt(startFrom)
+			   n += parseInt(startFrom) 
+			*/
+			   n_to = length-1
+			   
+			   // MARKS ON THE AXIS
+			  ctx.font= ftSize+"px "+ftName;
+			  ctx.fillStyle = ftColor;
+			  
+			  while ( n <= n_to){				
+				markLength = ( n%20 == 0 )?markLengthMax:markLengthMax/2				
+				switch( axis ){
+				  case 'x0':
+				  case 'stage_time_line':
+					 x1 = n
+					 y1 = 0
+					 x2 = n
+					 y2 = markLength
+					 tx = x2-ftSize/2
+					 ty = y2+axisDecal
+				  break;
+				  case 'x1':
+					 x1 = n
+					 y1 = cvHeight
+					 x2 = n
+					 y2 = cvHeight-markLength 
+					tx = x2-ftSize/2
+					ty = y2-axisDecal
+				  break;
+				  case 'y0':
+					 x1 = 0
+					 y1 = n
+					 x2 = markLength
+					 y2 = n 
+					tx = x2+axisDecal
+					ty = y2//-ftSize/2
+				  break;
+				  case 'y1':				  
+					x1 = cvWidth
+					y1 = n
+					x2 = cvWidth-markLength
+					y2 = n
+					tx = x2-axisDecal
+					ty = y2-ftSize/2
+				  break;
+				}
+				
+				drawLine(ctx, x1, y1, x2, y2)
+				
+				if (markLength == markLengthMax){
+				  if( textValue == 'nSteps'){
+					ctx.fillText(n, tx, ty );
+				  }
+				  else if( textValue == 'units'){
+					ctx.fillText((n+parseInt(startFrom))/step, tx, ty );
+					//console.log((n+parseInt(startFrom))+ ' '+n+ ' ' +step)
+				  }
+				  if( axisDecal == markLengthMax){
+					axisDecal = markLengthMax/2
+				  }else{
+					axisDecal = markLengthMax
+				  }
+				}
+				
+				n += step
+			  }
+			}
+	
+	/*
+		DRAW TIMELINE RULERs UNITS
+		used by stageReq RAF
+	*/
+	function redraw_timeline_ruler(paramsObject){
+		clear_canvas('timeline_canvas')
+		var params = 
+		{
+		  canvasId: 'timeline_canvas',
+		  axis: 'stage_time_line',
+		  step: paramsObject.step,
+		  ftColor: 'white',
+		  markLengthMax: 20,
+		  textValue: 'units',
+		  startFrom: paramsObject.startFrom*paramsObject.step //  N x step = startFrom value
+		}
+		draw_axis_ruler( params )	
+	}
+	
+	/*
+		USED BY PATHS EDITOR & STAGES EDITOR -- end
+	*/
+	
+	window.mainPreviewSprite = function() {			
+	  //console.log(obj)
+	  var a = obj.canvas,
+		  b = obj.ctx,
+		  c = obj.img,
+		  d = obj.positions,
+		  e = obj.prevSprtIdx,
+		  f = obj.sWidth,
+		  g = obj.sHeight,
+		  h = obj.frameTicker,
+		  i = obj.nextFrameAt  
+	   
+	  if ( h >= i ){
+		drawFrame(a,b,c,d,e,f,g,h,i);        
+		h = 0    
+		e++
+		if (e > d.length-1){
+		  var e = 0
+		}
+	  }      
+	   h++  
+	   obj = {
+		 canvas:a, 
+		 ctx:b, 
+		 img:c, 
+		 positions:d, 
+		 prevSprtIdx:e, 
+		 sWidth:f, 
+		 sHeight:g, 
+		 frameTicker:h, 
+		 nextFrameAt:i     
+	   }  
+	  spriteReq = requestAnimationFrame( mainPreviewSprite )   
+	}
+	
+	/*
+	var objectPreview = {
+		imgSrc :,
+		positions :,
+		sprtWidth :,
+		sprtHeight :,
+		nextFrameAt:
+	}
+	preview_sprite( objectPreview )
+	
+	*/
+	function preview_sprite( objectPreview )
+	{
+	   cancelAnimationFrame(spriteReq)
+	   
+	    $('#sprite_preview')
+		.remove()
+	   
+	  var previewContainer = 
+		  objectPreview.previewContainer,
+		  imgSrc = objectPreview.imgSrc,
+		  positions = objectPreview.positions,
+		  sprtWidth = objectPreview.sprtWidth,
+		  sprtHeight = objectPreview.sprtHeight,
+		  nextFrameAt = objectPreview.nextFrameAt
+	  
+	  $('<canvas></canvas>')
+		.attr('id','sprite_preview')
+		.prependTo(previewContainer)	  
+	  
+	  var img = new Image()
+	  img.onload = function(){ 
+	    
+		 var canvas = document.querySelector('#sprite_preview')    
+		 var ctx = canvas.getContext("2d")
+		 var PrevSprtIdx = 0
+		
+		  // resize canvas to fit image size					
+		  ctx.canvas.width = img.naturalWidth;
+		  ctx.canvas.height = img.naturalHeight; 
+		 var frameTicker = 0,
+			 prevSprtIdx = 0
+		 obj = {}
+		 obj.canvas = canvas
+		 obj.ctx = ctx
+		 obj.img = img
+		 obj.positions = positions
+		 obj.prevSprtIdx = prevSprtIdx
+		 obj.sWidth = sprtWidth
+		 obj.sHeight = sprtHeight
+		 obj.frameTicker = frameTicker
+		 obj.nextFrameAt =  nextFrameAt 
+		 
+		 mainPreviewSprite(); 
+		
+	  }// onload 
+	  
+	  img.src = imgSrc+'?t='+Date.now()
+	 
+	}//preview_sprite( objectPreview )
+
+	 window.drawFrame = function(Canvas, Ctx, Img, Positions, PrevSprtIdx, SWidth, SHeight, FrameTicker, NextFrameAt){
+	   var j = Canvas, 
+		   k = Ctx, 
+		   l = Img, 
+		   m = Positions, 
+		   n = PrevSprtIdx, 
+		   o = SWidth, 
+		   p = SHeight
+	   
+	   
+		if (n <= m.length-1){
+		 
+		  // clear canvas
+		  k.clearRect(0,
+						0,
+						j.clientWidth,
+						j.clientHeight);    
+		  
+		  var sx = m[n][0],
+			  sy = m[n][1],
+			  sWidth = o,
+			  sHeight = p, 
+			  dx = 0,
+			  dy = 0,
+			  dWidth = SWidth, 
+			  dHeight = SHeight           
+					 
+		  // draw image on canvas
+		  k.drawImage(l, 
+						sx, 
+						sy, 
+						sWidth, 
+						sHeight, 
+						dx, 
+						dy, 
+						dWidth, 
+						dHeight);     
+		  
+	   }
+	}
+	
+	/*
+	var objectPreview = {
+		imgSrc : 'game_assets/images/boy-spritesheet-mirrored.png',
+		positions : [[0,0],[20.5,0],[41,0],[61.5,0]],
+		sprtWidth : 20.5,
+		sprtHeight : 24,
+		nextFrameAt: 12
+	}
+	preview_sprite( objectPreview )
+*/
+	
+	/*
+		preview sprite -- END
+	*/
+	
+	
+	
+	
+	
+	// SPRITES EDITOR
+	var spriteEditorImage,// NOT REALLY NECESSARY SO FAR
+		spriteEditorImageSrc,
+		spritesheetParsing = 'horizontal',
+		positions = []
+		/* how the spritesheet is parsed, 'vertical' | 'horizontal', 
+					 changes the order the frames appear in the frame selector */
+		
+	// PATHS EDITOR
+		var mousePressed = false, lastX, lastY, ctx_canvas
+		
+		
+		$.widget( "custom.windowToTab",{
+			options: {
+				title: 'a sample custom window',
+				status: 'minimized',
+				width: 50+'%',
+				height: 50+'%',
+				html: this.innerHTML
+				
+			},
+			_create: function() {
+				
+				this
+				.element
+				.append( '<div class="handle"><span class="title">'+this.options.title+'</span><button class="minimize">minimize</button><button class="maximize">maximize</button></div>' )
+				
+				if ( this.options.status == 'maximized' ){
+					this._maximize()					
+				}else{
+					this._minimize()					
+				}
+												
+				this._on( this.element, {
+				  "click button.minimize": function( event ) {
+					this.options.status = this._minimize()					
+				  }
+				});
+				
+				this._on( this.element, {
+				  "click button.maximize": function( event ) {				
+					this.options.status = this._maximize()
+				  }
+				});		
+								
+			},
+			/*_setOption: function( key, value ) {
+				if ( key === "value" ) {
+					value = this._constrain( value );
+				}
+				this._super( key, value );
+			},*/
+			/*_setOptions: function( options ) {
+				this._super( options );
+				this.refresh();
+			},*/			
+			_minimize: function() {
+			
+				this
+				.element
+				.css({
+					position:'relative',
+					top:0,
+					left:0,
+					width: 200,
+					height: '1em',
+					marginLeft: 0,
+					marginTop: 0,
+					overflow:'hidden'
+				})
+				/*.replaceWith('<li id='+this.element.id+'>'+this.element.innerHTML+'</li>')*/					
+				.appendTo('#minimized_windows')
+								
+				if( this.element.hasClass('ui-resizable') ){
+					this
+					.element
+					.resizable('destroy')
+					.draggable('destroy')				
+				}
+				
+				this.element.find('.handle .minimize').hide()
+				this.element.find('.handle .maximize').show()
+				
+				this._on( this.element, {
+				  "mouseup button.maximize": function( event ) {
+					event.preventDefault();				  
+					this._maximize()
+					this._off( this.element.find('button.maximize'), "mouseup" );
+				  }
+				});
+				$('#undefined').remove()
+				this.options.status == 'minimized'
+				
+				
+				if( this.options.title == 'sprites_editor' ){
+					// DISBALE MOUSE INTERACTIONS WITH SPRITE PREVIEW
+					$('#sprites_list li a').off('mouseenter')
+					$('#sprites_list li a').off('mouseleave')
+				}				
+				
+				if( this.options.title == 'paths_editor' ){
+					
+				}	
+				
+			},
+			_maximize: function() {
+				this.element			
+				/*.replaceWith('<div id='+this.element.id+'>'+this.element.innerHTML+'</div>')*/				
+				.appendTo('#body')
+				.css({
+					position:'absolute',
+					display: 'block',
+					top: window.innerHeight/2,
+					left: window.innerWidth/2,
+					width: 80*window.innerWidth/100,
+					height: 80*window.innerHeight/100,
+					marginLeft: -1* (80*window.innerWidth/100)/2,
+					marginTop: -1* (80*window.innerHeight/100)/2,
+					
+				})				
+				.resizable()
+				.draggable({handle: ".handle" })
+				
+				this.element.find('.handle .minimize').show()
+				this.element.find('.handle .maximize').hide()
+				
+				this._on( this.element, {
+				  "mouseup button.minimize": function( event ) {
+					event.preventDefault();				  
+					this._minimize()
+					this._off( this.element.find('button.maximize'), "mouseup" );
+							
+				  }
+				});
+
+				
+				this.options.status == 'maximized'
+				$('#undefined').remove()
+				
+				if( this.options.title == 'sprites_editor' ){
+					$('#sprt-ed-tabs').tabs()
+					init_sprite_preview()
+				}				
+				
+				if( this.options.title == 'paths_editor' ){
+					$('#cv-ed-tabs').tabs()
+				}	
+			}
+			
+		});
+		
+		/*
+			TAKE A SCREENSHOT OF THE CANVAS OF THE PATHS EDITOR
+		*/
+		window.screenshot = function(paramsObject){
+	
+		console.log('window.screenshot: \r\n'+JSON.stringify(paramsObject))
+		
+	   var fileName = paramsObject.fileName,
+		   Canvas = document.getElementById(paramsObject.canvasId),//paramsObject.fromCanvasObject,
+		   destinationDir = paramsObject.destinationDir
+		
+		//alert(paramsObject.sourceImageWidth+' '+paramsObject.sourceImageHeight)
+		
+       html2canvas( Canvas,{
+					  scale:1,
+					  width: paramsObject.sourceImageWidth,
+					  height: paramsObject.sourceImageHeight
+					}).then(function(cnvs) {
+		
+		//console.log('cnvs: \r\n'+cnvs)
+		
+         // Get base64URL
+        var base64URL = cnvs.toDataURL('image/png').replace('image/png', 'image/octet-stream');
+		 
+		//var path_name = $('#path_name').val()
+				 
+         // AJAX request
+         $.ajax({
+            url: 'canvasToThumbnail.php',
+            type: 'POST',
+            data: {'image': base64URL, 'fileName':fileName,'destinationDir':destinationDir}            
+         })
+		 .done(function(data){
+			console.log('Upload successfully');
+			console.log('data: '+data);
+			/*$(".wrapper>*, body>*:not(#levels_list):not(#loader)")
+			.toggle()*/
+		})
+		
+       })
+     }
+	
+	    
+		function copyCanvasContentToSnapshotCanvas(paramsObject) {  
+		
+		//alert(paramsObject.sourceImageWidth+' '+paramsObject.sourceImageHeight)
+		
+		console.log('copyCanvasContentToSnapshotCanvas(): \r\n'+JSON.stringify(paramsObject))
+		
+		  var fromCanvasObject = paramsObject.fromCanvasObject  
+		  var destinationCanvas = document.getElementById('snapshot_canvas')
+			  destinationCanvas.width = paramsObject.sourceImageWidth
+			  destinationCanvas.height = paramsObject.sourceImageHeight
+			  
+			  $('#snapshot_canvas').css({
+				width: paramsObject.sourceImageWidth,
+				height: paramsObject.sourceImageHeight,
+				margin: 0,
+				padding:0,
+				border: 'none'
+				
+			  })
+			  
+			  
+		  //grab the context from your destination canvas
+		  var destCtx = destinationCanvas.getContext('2d');
+		  //call its drawImage() function passing it the source canvas directly
+		  //return 
+		  destCtx.drawImage(
+			fromCanvasObject,
+			0,
+			0,
+			paramsObject.sourceImageWidth,
+			paramsObject.sourceImageHeight,
+			0,
+			0,
+			paramsObject.sourceImageWidth,
+			paramsObject.sourceImageHeight
+		  );
+		}
+		
+		
+		/*
+		  GENERATE A THUMBNAIL OF BRICKWALL FOR brickwalls_editor
+		  IT SHOULD BE MODIFIED IN ORDER TO BE USED BY OTHER EDITORS
+		*/
+		function brickwalls_canvas_screenshot(){
+		  // COPY CONTENT FROM canvas TO #snapshot_canvas  (#brickwalls_canvas)
+		  var paramsObject = {
+			fromCanvasObject:canvas,
+			sourceImageWidth:sourceWidth,
+			sourceImageHeight:sourceHeight,
+			canvasId: canvas.id,
+			fileName: $('#brickwall_name').val(),
+			destinationDir: $('#brickwall_ed_frm .destination_dir').val()
+		  }
+		  
+		  //copyCanvasContentToSnapshotCanvas(paramsObject)
+		  /*
+		  var paramsObject = {
+			canvasId: 'snapshot_canvas',//brickwall_canvas
+			fileName: $('#brickwall_name').val(),
+			destinationDir: $('#brickwall_ed_frm .destination_dir').val()
+		  }*/
+		  screenshot(paramsObject)  
+		}
+		
+
+	
+
+		/*
+		  GENERATE A THUMBNAIL FOR THE SPRITE
+		  ./game_assets/sprites/spriteName.png
+		*/
+		function sprite_screenshot(){
+				  // COPY CONTENT FROM canvas TO #snapshot_canvas  (#brickwalls_canvas)
+			  var canvas = document.getElementById("sprt_ed_container_sprite").firstElementChild////sprt_ed_container_sprite
+				  var paramsObject = {
+					fromCanvasObject:canvas,
+					canvasId:canvas.id,
+					sourceImageWidth:$("#sprt_ed_container_sprite").find('canvas:eq(0)').width(),
+					sourceImageHeight:$("#sprt_ed_container_sprite").find('canvas:eq(0)').height()
+				  }
+				  paramsObject.destinationDir = $('#sprt_ed_frm .destination_dir').val()
+				  paramsObject.fileName = $('#sprite_name').val()
+				  
+				  
+				  //copyCanvasContentToSnapshotCanvas(paramsObject)
+				  /*
+				  var paramsObject = {
+					canvasId: 'snapshot_canvas',//brickwall_canvas
+					fileName: $('#sprite_name').val(),
+					destinationDir:  $('#sprt_ed_frm .destination_dir').val(),
+					sourceImageWidth:,
+					sourceImageHeight
+				  }*/
+				  screenshot(paramsObject)  
+				}
+
+		window.snapshot_canvas = function( paramsObject ){	
+		  
+			var canvasId = paramsObject.canvasId 
+			var canvas = document.getElementById(canvasId);
+			var ctx = canvas.getContext("2d")
+			
+			ctx.clearRect(0, 0, canvas.width, canvas.height); 
+			
+			$.each(path_coords,function(i,e){
+				console.log(i+' '+e)   
+				if( i < path_coords.length-1 ){
+				  drawLine(ctx, e[0], e[1], path_coords[i+1][0], path_coords[i+1][1])
+				}    
+			})
+			console.clear()
+			console.log('snapshot_canvas: \r\n'+paramsObject)
+		  screenshot( paramsObject )
+		}
+		/*
+		function entity_screenshot(){
+				// COPY CONTENT FROM canvas TO #snapshot_canvas
+		  var canvas = $("#divDEFAULT label .sprite_thumb")// DEFAULT ANIMATION THUMB
+		  var canvasID = canvas.attr('id')
+			  canvas = document.getElementById(canvasID)			
+			  
+			  //alert(canvasID)
+			  
+		  var paramsObject = {
+			fromCanvasObject:canvas,
+			canvasId: canvasID,
+			sourceImageWidth:canvas.width,
+			sourceImageHeight:canvas.height,					
+			fileName: $('#entity_name').val(),
+			destinationDir: destination_dir.entities 
+		  }	
+		  screenshot(paramsObject) 	  
+						  
+		}
+		*/
+	function entity_screenshot(){
+			var imgId = $('#divDEFAULT label img').attr('id')
+var img = document.getElementById(imgId)//"im1577606157127"
+
+      var paramsObject = {
+				fromCanvasObject:img,
+				canvasId: img.id,
+				sourceImageWidth:img.width,
+				sourceImageHeight:img.height,					
+				fileName: $('#entity_name').val(),
+				destinationDir: destination_dir.entities 
+		  }	
+		  
+	    var fromCanvasObject = paramsObject.fromCanvasObject  
+		  var destinationCanvas = document.getElementById('snapshot_canvas')
+			    destinationCanvas.width = paramsObject.sourceImageWidth
+			    destinationCanvas.height = paramsObject.sourceImageHeight
+			  
+			  $('#snapshot_canvas').css({
+					width: paramsObject.sourceImageWidth,
+					height: paramsObject.sourceImageHeight,
+					margin: 0,
+					padding:0,
+					border: 'none'
+			  })
+			  
+			  
+		  //grab the context from your destination canvas
+		  var destCtx = destinationCanvas.getContext('2d');
+				//call its drawImage() function passing it the source canvas directly
+				
+				destCtx.drawImage(
+				fromCanvasObject,
+				0,
+				0,
+				paramsObject.sourceImageWidth,
+				paramsObject.sourceImageHeight,
+				0,
+				0,
+				paramsObject.sourceImageWidth,
+				paramsObject.sourceImageHeight
+				);	
+			
+			  var paramsObject = {
+					fromCanvasObject: document.getElementById("snapshot_canvas"),
+					canvasId: 'snapshot_canvas',//brickwall_canvas
+					fileName: $('#entity_name').val(),
+					destinationDir: destination_dir.entities,
+					sourceImageWidth:img.width,
+					sourceImageHeight:img.height						
+			  }
+								  
+			  screenshot(paramsObject) 
+		  
+						  
+		}
+		
+		
+		$(function(){
+			
+			// TO ENABLE SENDING FORM DATA AS A JSON OBJECT
+			$.fn.serializeObject = function() {
+				var o = {};
+				var a = this.serializeArray();
+				$.each(a, function() {
+					if (o[this.name]) {
+						if (!o[this.name].push) {
+							o[this.name] = [o[this.name]];
+						}
+						o[this.name].push(this.value || '');
+					} else {
+						o[this.name] = this.value || '';
+					}
+				});
+				return o;
+			};
+			
+			
+			
+			
+			/*
+				FOR ALL EDITORS
+			*/
+			function load_editor( editorName ){
+					//$('#active_editor')		
+				var editorDialog = $('<div/>')				
+				editorDialog.load(editorName+'/index.php',function(){
+									
+					// OPEN THE EDITOR IN A JQUERY customWindow widget
+					$(this)
+					.addClass('customWindow')
+					.attr('id',editorName)					
+					.appendTo('#body')
+					.windowToTab({
+						title: editorName,
+						status: 'maximized',
+						width: window.innerWidth*0.8, // 80% of the window's width
+						height: window.innerHeight*0.8, // 80% of the window's height,
+						html: $('#'+editorName).innerHTML
+					})
+										
+					$(this).appendTo(editorDialog)
+					
+					if(editorName == 'sprites_editor'){
+						$('#sprt_ed_frm #destination_dir').val(destination_dir.sprites)
+						$( "#sprt-ed-tabs" ).tabs();
+						init_sprite_preview()
+					}
+					if( editorName == 'paths_editor' ){
+						$('#path_ed_frm #destination_dir').val(destination_dir.paths)
+						$('#cv-ed-tabs').tabs()
+					}	
+					if( editorName == 'brickwalls_editor' ){
+						$('#brickwall_ed_frm #destination_dir').val(destination_dir.brickwalls)
+						$('#brickwalls_editor .tools').draggable()	
+						$('#BW-ed-tabs')
+						.tabs()
+						.draggable()
+						
+						// INJECT DEFAULT VALUES
+						var dataObject = {
+						  '#tileWidth':45,
+						  '#tileHeight':40,
+						  '#mapRows':5,
+						  '#mapColumns':5
+						}
+						injectDefaultValue( dataObject )						
+						generateColorPalette()
+					}	
+					
+					if( editorName == 'entities_editor' ){
+						$('#entity_identity_inputs #destination_dir').val(destination_dir.entities)
+						/*$('#brickwalls_editor .tools').draggable()	*/
+						$('#ent-ed-tabs')
+						.tabs({
+							create: function( event, ui ){
+								
+								// IDENTITY
+								$('#entity_strength,#entity_energy').spinner()								
+								generate_entityTypeSelect()
+																
+								// POSITIONS & MOVEMENTS
+								$('<a/>')
+								.attr('id','noPathBtn')
+								.text('no path')
+								.appendTo('label[for="entity_path"]')
+								
+								//$('#entity_pathStep,#entity_pathIdx').spinner()
+								
+								$('#entity_pathStep')
+								.val(1)
+								.spinner()
+								
+								$('#entity_pathIdx')
+								.val(0)
+								.spinner()
+								
+								$(document)
+								.delegate('#noPathBtn','click',function(e){
+									e.preventDefault()
+								   $('label[for="entity_path"] .path_thumb')
+								   .remove()
+								  $('#entity_path').val(-1)
+								})
+								
+								// ANIMATIONS
+								generateEntitiesAnimationsInputs()
+								generate_entityPathEndSelect()									
+								
+								$('#entity_x,#entity_y')
+								.val(0)
+								.spinner({
+									change: function( event, ui ) {
+										 spawnEntityPreview()
+									},
+									spin: function( event, ui ) {
+										 spawnEntityPreview()
+									}
+								})
+								
+								$('#entity_dx,#entity_dy')
+								.val(0)
+								.spinner()
+								
+								// BEHAVIOURS
+								generateBehaviourInputs()
+							}
+						})
+						
+					}// end if
+					
+					if( editorName == 'stages_editor' ){
+						$( "#stg-ed-tabs" ).tabs();
+						$( "#stage_timeline_container" )
+						.draggable({
+							handle: "#timeline_controls",
+							create: function( event, ui ) {							
+								$( "#stage_timeline_container" )
+								.css({
+									top:'100%',
+									marginTop:'-100px',
+									zIndex: 5
+								})
+								$('#pauseTimeLineBtn').hide()
+							}
+						});
+						
+						$('#stage_ec_manager_container').draggable({
+							handle: "#stage_ec_manager_controls",
+							create: function( event, ui ) {							
+								/*$( "#stage_ec_manager" )
+								.css({
+									top:'100%',
+									left:'100%',
+									marginTop:'-100px',
+									marginLeft:'-100px',
+									zIndex:5
+								})*/
+							}											
+						})
+						
+						$('#stageNthFrame')
+						.spinner({
+						  spin: function(event,ui){
+						  /*
+						    stageNthFrame = $(this).val()
+							
+							if( typeof stageReq !== 'undefined' ){
+							  cancelAnimationFrame(stageReq)
+							}													  
+								if( $('#pauseTimeLineBtn').is(':hidden')){
+								  $('#pauseTimeLineBtn').show()
+								  $('#playTimeLineBtn').hide(mainPreviewStage())      
+								}*/
+								
+								if( ui.value > $(this).val() ){
+									stepUp()
+								}
+								
+								if( ui.value < $(this).val() ){
+									stepDown()
+								}
+								
+								stageNthFrame = ui.value
+								
+							},
+						  change: function( event, ui ) {
+						   /*
+							stageNthFrame = $(this).val()
+							//stageNthFrame--
+							//$('#stageNthFrame').val(stageNthFrame)
+							
+							// STOP THE TIME LINE RAF
+							if( typeof stageReq !== 'undefined' ){
+							  cancelAnimationFrame(stageReq)
+							}
+							
+							// 						
+							//if( $('#playTimeLineBtn').is(':hidden')){
+							  $('#pauseTimeLineBtn').hide()
+							  $('#playTimeLineBtn').show()
+							//}
+							*/
+						  },
+						  stop: function( event, ui ) {	
+						  /*
+							stageNthFrame = $(this).val()												  
+							//stageNthFrame--
+							//$('#stageNthFrame').val(stageNthFrame)
+							if( typeof stageReq !== 'undefined' ){
+							  cancelAnimationFrame(stageReq)
+							}						  
+							if( $('#pauseTimeLineBtn').is(':hidden')){
+							  $('#pauseTimeLineBtn').show()
+							  $('#playTimeLineBtn').hide(mainPreviewStage())      
+							}
+							*/
+							
+						  }
+							
+						})
+						
+						$(document)
+						.delegate('#stageNthFrame','change',function(){
+							//checkEC()// check if there is any entity cannon at 		
+							mainPreviewStage()
+						})
+						
+						/*
+						$(document)
+						.delegate('#stageNthFrame','change',function(){
+							checkEC()// check if there is any entity cannon at 		
+						})
+						*/
+					}
+					
+				})	
+			}
+			
+			// TO ENABLE SENDING FORM DATA AS A JSON OBJECT
+			$.fn.serializeObject = function() {
+				var o = {};
+				var a = this.serializeArray();
+				$.each(a, function() {
+					if (o[this.name]) {
+						if (!o[this.name].push) {
+							o[this.name] = [o[this.name]];
+						}
+						o[this.name].push(this.value || '');
+					} else {
+						o[this.name] = this.value || '';
+					}
+				});
+				return o;
+			};
+			
+			// RESET FORM (sprites editor)
+
+			function reset_form(){
+			  //empty name, spritesheet, width, height
+			  $('#sprite_name,#sprite_src,#sprite_width,#sprite_height,#sprite_positions')
+			  .val(null)
+			  
+			  // remove selectable frames
+			  $('#sprt_ed_container_frames').empty();
+			  // remove selectable sprite frames
+			  $('#sprt_ed_container_sprite').empty();
+			}
+			
+			/*
+				SET FORM FIELDS DEFAULT VALUES
+				AND TRIGGER CHANGE INCASE IT NEEDS TO
+			*/
+			window.injectDefaultValue = function( dataObject ){  
+			  $.each( dataObject,function(i,e){
+				 $(i).val(e).trigger('change')
+			  }) 
+			}
+
+			
+			/*
+				PARAMETERS: canvas id - string
+			*/
+			 window.clear_canvas = function(){
+				
+			  if(arguments.length > 0){
+				var canvas = document.getElementById(arguments[0])    
+			  }
+			  else{
+				var canvas = document.getElementById('sprt_ed_image_grid')    
+			  }
+				// clear canvas
+			  
+			  var ctx = canvas.getContext("2d")   
+			  ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);
+			}
+			
+			// RESET THE SPRITE EDITOR FORM
+			$(document)
+			.delegate('#reset_form','click',function(e){
+				reset_form()
+				clear_canvas()
+			})
+			
+			/*
+				SPRITES EDITOR ONLY
+			*/			
+			$('#sprites_editor_btn').on('click',function(){load_editor('sprites_editor')})
+			$('#paths_editor_btn').on('click',function(){load_editor('paths_editor')})
+			$('#brickwalls_editor_btn').on('click',function(){load_editor('brickwalls_editor')})
+			$('#entities_editor_btn').on('click',function(){load_editor('entities_editor')})
+			$('#stages_editor_btn').on('click',function(){load_editor('stages_editor')})
+			
+			$(document)
+			.delegate('#images_list_container .select_image','click',function(e){
+				e.preventDefault();	
+
+				var imgSrc = $(this).children('img:eq(0)').attr('src')
+					//spriteEditorImage = $(this).children('img:eq(0)')
+					spriteEditorImageSrc = imgSrc; //make it globally available
+					$('#sprite_src').val(spriteEditorImageSrc);// update spritesheet input					
+					$('#sprt_ed_container_frames').val(null);// remove selectable frames
+					$('#sprt_ed_container_sprite').empty(null);// remove selectable sprite
+					copy_image_to_canvas(imgSrc)		
+			})
+			
+			
+			
+			function copy_image_to_canvas( imgSrc ){
+			
+				// COPY IMAGE TO #image_container				
+				var container = $('#sprt_ed_container_image');
+				var canvas = document.getElementById('sprt_ed_image_grid')    
+				var ctx = canvas.getContext("2d")	
+								
+				var img = new Image()
+				
+				img.onload = function(){
+	
+					var canvas = document.getElementById('sprt_ed_image_grid')    
+					var ctx = canvas.getContext("2d")   
+				
+					// resize canvas to fit image size					
+					ctx.canvas.width = img.naturalWidth;
+					ctx.canvas.height = img.naturalHeight ;
+					
+					// clear canvas
+					ctx.clearRect(0,
+                    0,
+                    canvas.clientWidth,
+                    canvas.clientHeight);
+					
+					// draw image on canvas
+					ctx.drawImage(img, 0,0);
+					
+					var colSize = $('#sprite_width').val(),
+						rowSize = $('#sprite_height').val()				
+					if( $('#sprite_width').val() != '' && $('#sprite_height').val() != '' ){
+						drawGrid('sprt_ed_image_grid',
+								  ctx.canvas.width, 
+								  ctx.canvas.height, 
+								  colSize, 
+								  rowSize);
+								  
+						populateFrames(
+								  ctx.canvas.width, 
+								  ctx.canvas.height, 
+								  colSize, 
+								  rowSize)  
+					}
+					
+					
+				}
+				img.src = imgSrc
+			}
+
+			function populateFrames( canvasWidth, canvasHeight, colSize, rowSize){
+							
+				
+				var total_frames = (canvasWidth/colSize) * (canvasHeight/rowSize)
+				//alert(total_frames)
+				
+				var frames = []
+								
+				var n = 0,
+					x = 0,
+					y = 0
+				while ( n <= total_frames-1) {	
+					
+					frames.push({x: Number(x),y: Number(y)})
+					
+						console.log(spritesheetParsing)
+					
+						if( spritesheetParsing == 'horizontal' ){
+							if( x == canvasWidth - Number(colSize) ){
+								y +=  Number(rowSize)
+								x = - Number(colSize)
+							}
+							x +=  Number(colSize)
+						}else if( spritesheetParsing == 'vertical' ){
+							if( y == canvasHeight - Number(rowSize) ){
+								x +=  Number(colSize)
+								y = - Number(rowSize)
+							}
+							y +=  Number(rowSize)
+						}
+					n++
+				}
+										
+				var n = 0;
+				while (n < frames.length){
+				
+					var frame = frames[n]
+					var x = frame.x,
+						y = frame.y
+						console.log(frame)			
+					var canvasId = 'frame'+n//Math.floor(Date.now())							
+					var newCanvas = $('<canvas/>')
+						.attr('id',canvasId)
+						.attr('width', colSize)
+						.attr('height', rowSize)
+						.attr('title', JSON.stringify({x:x,y:y}))						
+						.addClass('frameCtrl')
+					
+					newCanvas.appendTo('#sprt_ed_container_frames')	
+					
+					var canvas = document.getElementById(canvasId)
+					var ctx = canvas.getContext("2d") 					
+					var img = document.getElementById('sprt_ed_image_grid')    						
+					//ctx.drawImage(img, x, y, rowSize, colSize, 0, 0, rowSize, colSize);	
+					ctx.drawImage(img, x, y, colSize, rowSize, 0, 0, colSize, rowSize);
+					n++
+				}
+			}
+
+			function drawGrid(idCanvas, bw, bh, colSize, rowSize){ 
+
+				$('#sprt_ed_container_frames').empty();// remove selectable frames
+				$('#sprt_ed_container_sprite').empty();// remove selectable sprite
+				
+				var canvas = document.getElementById(idCanvas)     
+				var ctx = canvas.getContext("2d")
+				// VERTICAL LINES
+				for (var x = 0; x <= bw/colSize; x += 1) {
+					ctx.moveTo(x*colSize, 0);
+					ctx.lineTo(x*colSize, bh);
+				}
+				// HORIZONTAL LINES
+				for (var x = 0; x <= bh/rowSize; x += 1) {
+					ctx.moveTo(0, x*rowSize);
+					ctx.lineTo(bw, x*rowSize);
+				}
+				ctx.strokeStyle = "#000";
+				ctx.stroke();
+			}
+
+			function updateGrid( imgSrc ){
+				// clear canvas 
+				//ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+				copy_image_to_canvas( imgSrc )
+			}
+			
+			/*
+				EVENT LISTENERS
+			*/
+			
+			$(document)
+			.delegate('#sprite_width,#sprite_height','change',function(){
+				updateGrid(spriteEditorImageSrc)
+			})
+
+			$(document).on('change', 'input[name="spritesheetParsing"]', function() {
+			  var spritesheetParsing = $("input[name='spritesheetParsing']:checked").val();
+				console.log(spritesheetParsing)
+				updateGrid(spriteEditorImageSrc)
+			});
+			
+			// ADD A FRAME TO THE SPRITE
+			$(document)
+			.delegate('#sprt_ed_container_frames .frameCtrl','click',function(){
+				
+				// ORIGINAL CANVAS
+				var oCanvasId = $(this).attr('id')
+				var oCanvas = document.getElementById(oCanvasId);
+				
+				// CLONE CANVAS
+				var cloneCanvasId = Math.floor(Date.now())
+				var canvasClone = 
+					$(this)
+					.clone()
+					.attr('id', cloneCanvasId)
+					.appendTo('#sprt_ed_container_sprite')
+				
+				var canvas = document.getElementById(cloneCanvasId);//$('#'+cloneCanvasId)
+				var ctx = canvas.getContext("2d")				
+				ctx.drawImage(oCanvas, 0, 0);
+			})
+			
+			// REMOVE A FRAME FROM THE SPRITE
+			$(document)
+			.delegate('#sprt_ed_container_sprite .frameCtrl','click',function(){
+				$(this).remove()
+			})
+			
+			
+			
+			// CONVERT FRAMES INTO ARRAY DATA
+			// GENERATE ARRAY POSITIONS[]
+			// POPULATE #sprite_positions with positions[]
+			 window.sprite_generate_json = function(){
+			
+			  positions = []
+			  $('#sprt_ed_container_sprite .frameCtrl')
+			  .each(function(idx,el){
+				console.log(idx+' '+el.title)
+				
+				var data = JSON.parse(el.title)
+				
+				 var position = []
+				     position[0] = [data.x,data.y]
+				positions.push(position[0])
+			  })
+			  $('#sprite_positions')
+				.val(JSON.stringify(positions))			  
+			}
+			
+			$(document).delegate('#generatePositions', 'click', function(event) {
+				event.preventDefault()			
+				sprite_generate_json();// POPULATE THE TEXTAREA WITH positions[]
+			})
+			
+			// EXPORT A SPRITE TO A JSON FILE
+			$(document).delegate('form#sprt_ed_frm', 'submit', function(event) {
+			  event.preventDefault();
+			  
+			  /*
+				GENERATE A THUMBNAIL OF THE SPRITE
+				.game_assets/sprites/spriteName.png
+				will be used by:
+					sprites editor
+					entities editor
+					stage editor
+			  */
+			  sprite_screenshot() 
+			  
+			  sprite_generate_json();// POPULATE THE TEXTAREA WITH positions[]
+			  
+			  var json = $('form#sprt_ed_frm').serializeObject()  
+			
+			console.clear()
+			console.log(json)
+			
+			  $.ajax({
+				  type : "POST",
+				  async: true,
+				  url : "export_json_file.php",
+				  data : {json:JSON.stringify(json)}
+			  })
+			  .done(function(response){
+				  console.log(response)
+				  
+				  var jsonObj = JSON.parse(response)
+				  //alert( jsonObj.type+':\r\n'+jsonObj.msg  )
+				  dialogNotify(jsonObj.type+':\r\n'+jsonObj.msg)
+					load_sprites_list()				  
+			  })  
+			})
+			
+			function load_sprites_list(){
+				// REFRESH SPRITES LIST
+				$('#sprites_list_container')
+				.load('./sprites_editor/ #sprites_list_container #sprites_list',function(){
+					init_sprite_preview()
+				})
+			}
+			
+			
+			
+			$(document).delegate('#sprites_list a.delete_sprite', 'click', function(e) {
+				e.preventDefault()
+				$.ajax({
+					method: 'POST',
+					url: 'deleteFile.php',
+					asyn: true,
+					data: {fileUrl: $(this).attr('href')}
+				
+				})
+				.done(function(response){
+					 var jsonObj = JSON.parse(response)
+					
+					//alert( jsonObj.type+':\r\n'+jsonObj.msg  )
+					dialogNotify(jsonObj.type+':\r\n'+jsonObj.msg)
+					load_sprites_list()
+				})
+			})
+			
+			
+			/*
+				LOAD A SPRITE FROM THE UL #sprites_list
+			*/			
+			$(document).delegate('#sprites_list a.select_sprite', 'click', function(e) {
+				e.preventDefault()
+				
+				$.getJSON($(this).attr('href'))
+				.done(function(json){
+				  console.log(json)				  
+					$('#sprite_name').val(json.name)
+					$('#sprite_description').val(json.sprite_description)					
+					$('#sprite_src').val(json.src)
+					$('#sprite_width').val(json.width)
+					$('#sprite_height').val(json.height)
+					$('#sprite_positions').val(json.positions)
+					$('#sprite_frame').val(json.frame)
+					$('#sprite_frameMax').val(json.frameMax)
+					$('#sprite_frameTicker').val(json.frameTicker)
+					$('#sprite_nextFrameAt').val(json.nextFrameAt)
+					
+					// select the spritesheet
+					$('.select_image img[src="'+json.src+'"]').trigger('click')
+					
+					// GIVE IT TIME TO FINISH LOAD THE JSON AND GENERATING FRAMES
+					// THEN GENERATE THE SPRITE WITH ITS FRAMES 
+					setTimeout(function(){
+										
+					// SELECT THE FRAMES PERTAINING positions
+						$.each( json.positions ,function(i,e){
+						  var x = e[0], y = e[1]						
+						  var str = '{"x":'+x+","+'"y":'+y+'}'
+						  $.each( $('#sprt_ed_container_frames').children('.frameCtrl'),function(a,b){
+							if( 
+							  $(this).attr('title').indexOf(str) != -1 									
+							){
+							  $(this)
+								.trigger('click')
+							}
+						  })
+						})// $.each(JSON.parse(json.positions)
+						
+					// NOTIFY OBJET LOADED
+					var msg = 'sprite animation built'					
+					dialogNotify(msg)					
+						
+					}, 5000)
+					
+					
+					// NOTIFY OBJET LOADED
+					var msg = 'sprite '+json.name+' loaded'					
+					dialogNotify(msg)
+					
+				})
+				
+			})
+						
+			 window.init_sprite_preview = function(){
+			// LOAD JSON and START PREVIEW ON MOUSEOVER
+			  $('#sprites_list li a.select_sprite').on('mouseenter',function(e){
+				
+				cancelAnimationFrame(spriteReq)	
+			   // e.preventDefault()
+				$.getJSON($(this).attr('href'))
+					.done(function(json){		  
+							 var objectPreview = {}
+					 var n = 0
+				   $.each(json,function(i,e){
+					 console.log(i+' '+e)
+					 switch(i){
+					   case 'src': 
+						 objectPreview.imgSrc = e
+					   break;
+					   case 'positions': 
+						 var positions = e//JSON.parse(e)
+						 objectPreview.positions = positions
+					   break;
+					   case 'width':              
+						 objectPreview.sprtWidth = e           
+					   break;
+					   case 'height': 
+						 objectPreview.sprtHeight = e           
+					   break;
+					   case 'nextFrameAt': 
+						 objectPreview.nextFrameAt = e              
+					   break;
+					 }
+					  n++;
+					 console.log('n:'+n)
+					 if( n ==  9){
+					   objectPreview.previewContainer = $('#spritePreviewContainer')
+						 preview_sprite( objectPreview )
+					 }// if      
+				   })// each json      
+				})// done    
+			  })	
+
+			 // stop preview on mouseout
+			 $('#sprites_list li a.select_sprite').on('mouseleave',function(e){
+				//e.preventDefault()	   
+					cancelAnimationFrame(spriteReq)	
+				$('#spritePreviewContainer').html(null)
+			  })
+			}
+			
+			
+			/*
+				PATHS
+			*/
+			// REFRESH PATHS LIST
+			window.load_paths_list = function(){
+				
+				$('#paths_list_container').load('./paths_editor/ #paths_list_container #paths_list',function(e){
+					console.clear()
+					console.log(e)
+				})
+			}
+			
+			
+			$(document).delegate('#paths_list a.delete_path', 'click', function(e) {
+				e.preventDefault()
+				$.ajax({
+					method: 'POST',
+					url: 'deleteFile.php',
+					asyn: true,
+					data: {fileUrl: $(this).attr('href')}
+				
+				})
+				.done(function(response){
+					// REFRESH SPRITES LIST
+					load_paths_list()
+					
+					 var jsonObj = JSON.parse(response)	
+					alert( jsonObj.type+':\r\n'+jsonObj.msg  )
+					
+				})
+			})
+			
+			
+			/*
+				CREATE RELATIVE PATH FROM ABSOLUTE PATH    
+				return the relative path
+			*/
+
+				window.get_relative_path_from_absolute = function(){
+
+				console.clear()
+					 var n = 0,
+						 x,
+						 y,
+						 x2,
+						 y2,
+						 path_coords2 = []
+					 
+					 while ( n <= path_coords.length-2 ){         
+					   x = path_coords[n][0]
+					   y = path_coords[n][1]           
+					  x2 = path_coords[n+1][0]
+					  y2 = path_coords[n+1][1]           
+					  path_coords2[n] = [x2-x, y2-y]             
+					  console.log(path_coords2[n])              
+					  n++
+					 }
+					return path_coords2
+				}
+
+		/*
+			LOAD A BRICKWALL --begin
+		*/
+		  // LOAD PATH into paths editor FROM THE .json file
+			$(document).delegate('#BW_brickwalls_list_container .brickwalls_list a.select_brickwall', 'click', function(e) {
+			  e.preventDefault()	
+			  load_brickwall($(this).attr('href'))				
+			})
+			
+			// LOAD PATH into paths editor FROM THE .json file
+			function load_brickwall(brickwallFileUrl){
+				$.getJSON(brickwallFileUrl)
+				.done(function(json){          
+				$('#brickwall_name').val(json.brickwall_name)          
+				$('#wallBrick_description').val(json.description)          
+				    
+				$('#brickWidth').val(json.brickWidth)
+				$('#brickHeight').val(json.brickHeight)
+				$('#brickRowCount').val(json.brickRowCount)
+				$('#brickColumnCount').val(json.brickColumnCount)
+				$('#brickPadding').val(json.brickPadding)
+				$('#brickWallSkin').val(json.brickWallSkin)// RADIO 
+				$("input[name=brickWallSkin][value=" +json.brickWallSkin + "]").prop('checked', true);
+				$('#bricksEqualTiles').val(json.bricksEqualTiles)// RADIO
+				$("input[name=bricksEqualTiles][value=" +json.bricksEqualTiles + "]").prop('checked', true);          
+				$('#brickWallImage').val(json.brickWallImage)
+				$('#tileWidth').val(json.tileWidth)
+				$('#tileHeight').val(json.tileHeight)
+				$('#mapRows').val(json.mapRows)
+				$('#mapColumns').val(json.mapColumns)
+				$('#sourceWidth').val(json.sourceWidth)
+				$('#sourceHeight').val(json.sourceHeight)          
+				// CLEAR CANVAS & CANVAS_NRG
+				clear_canvas('brickwall_canvas')// clear canvas
+				clear_canvas('brickwall_nrg_canvas')// clear canvasNRG 
+
+				// RESET THE EDITOR STATE
+				initWallBrickMap()
+				
+				brickWidth =  json.brickWidth
+				brickHeight =  json.brickHeight
+				brickRowCount = json.brickRowCount
+				brickColumnCount = json.brickColumnCount          
+				brickPadding = json.brickPadding
+				brickWallSkin = json.brickWallSkin          
+				bricksEqualTiles = json.bricksEqualTiles
+				brickWallImage = json.brickWallImage          
+				tileWidth = Number(json.tileWidth)
+				tileHeight = Number(json.tileHeight)
+				mapRows = json.mapRows
+				mapColumns = json.mapColumns          
+				sourceWidth = Number(json.sourceWidth)
+				sourceHeight = Number(json.sourceHeight)            
+				canvas.width = sourceWidth
+				canvas.height = sourceHeight*2		
+				canvasEnergy.width = sourceWidth
+				canvasEnergy.height = sourceHeight*2          
+				mapHeight = sourceHeight
+				mapWidth = sourceWidth
+				
+				// POPULATE THE 2 ARRAYS tiles & nrgAmount
+				$.each( JSON.parse( json.wallBrickMap ) ,function(i,e){              
+				  tiles[i] = e
+				})				
+				$.each( JSON.parse( json.wallBrickMapEnergy ) ,function(i,e){              
+				  nrgAmount[i] = e
+				})
+				
+				$('#wallBrickMap').val(json.wallBrickMap)    // TEXTAREA       
+				$('#wallBrickMapEnergy').val(json.wallBrickMapEnergy)// TEXTAREA     
+				
+					// DRAW SPRITESHEET TILES
+			  if ( brickWallSkin == 'img' ){
+					 redrawSource()// FOR TILES PALETTE  
+					drawTheGrid()    
+			  // FOR brickWallSkin == 'img' ONLY 
+					
+					// GET THE THUMBNAIL SOURCE
+					var imgSrc = $('#brickwall_ed_frm .destination_dir').val()
+								+'/'
+								+json.brickwall_name+'.png'        
+						let tmpImg = new Image();
+							tmpImg.width = sourceWidth
+							tmpImg.height = sourceHeight
+							tmpImg.onload = function() {
+							context.drawImage(tmpImg, 0, 0,sourceWidth,sourceHeight);
+						}
+						tmpImg.src = imgSrc+'?t='+Date.now() ;	
+					}	
+					else if( brickWallSkin == 'color' ){
+					/*
+						image = new Image() ;           
+						image.onload = function() {
+			   */   
+						  var i = 0;             
+						  let gridX = 0, 
+							  gridY = 0; 
+
+						  while (i <= wallBrickMap.length ){
+							// DRAW COLOR BRICKS
+							sourceTile = tiles[i] 
+								
+							// PAINT THE TILE WITH THE SELECTED COLOR
+							var color_idx = sourceTile
+							context.fillStyle = colors[color_idx];    
+							context.fillRect(gridX, gridY, tileWidth, tileHeight);
+								
+							// DRAW RESISTANCE DATA ON NRG CANVAS
+							contextNRG.font = 0.5*tileWidth+"px Comic Sans MS";
+							contextNRG.fillStyle = (nrgAmount[i] == 'I')?"red":"lime";
+							contextNRG.textAlign = "right";
+							contextNRG.fillText( nrgAmount[i], gridX+tileWidth*0.8, gridY+tileHeight*0.8);	
+
+							// ITERATE
+							gridX += tileWidth
+							if( gridX == sourceWidth){               
+							  gridX = 0
+							  gridY += tileHeight              
+							  if( gridY == sourceHeight+sourceHeight){
+								gridY  = 0
+							  }
+							} 
+							i++;
+						 }
+					}//else if( brickWallSkin == 'color' ){
+					
+					// NOTIFY OBJET LOADED
+					var msg = 'brickwall '+json.brickwall_name+' loaded'					
+					dialogNotify(msg)					
+					
+				})// DONE
+			}
+		/*
+			LOAD A BRICKWALL --end
+		*/
+			
+			$(document).delegate('#brickwalls_list a.delete_brickwall', 'click', function(e) {
+				e.preventDefault()
+				$.ajax({
+					method: 'POST',
+					url: 'deleteFile.php',
+					async: true,
+					data: {fileUrl: $(this).attr('href')}
+				
+				})
+				.done(function(response){
+					 var jsonObj = JSON.parse(response)
+					alert( jsonObj.type+':\r\n'+jsonObj.msg  )					
+					load_brickwalls_list()
+				})
+			})
+			
+			 window.load_brickwalls_list = function(){
+				// REFRESH BEIKWALLS LIST
+				$('#BW_brickwalls_list_container')
+				.load('./brickwalls_editor/ #BW_brikwalls_list_container',function(){
+				//init_sprite_preview()
+				})
+			}
+			
+				
+			
+			window.loader = function (){			
+					
+				// NO ARGUMENTS , INIT THE LOADER
+					var b = $('#body'),
+						bW = Number.parseInt(b.css('width')),
+						bH = Number.parseInt(b.css('height'))
+						
+						console.log(bW+' '+bH)
+					$('#loader')
+					.css({
+						zIndex: 100000000000,
+						position: 'absolute',
+						top: bH/2+'px',
+						left: bW/2+'px',
+						marginTop: -1 * 60+'px',
+						marginLeft: -1 * 60+'px',
+						width: 120+'px',
+						height: 120+'px'
+					})
+				
+			}
+			/*
+			loader()
+			document.querySelector('#loader').style.opacity = 0
+			*/
+		})
+		
+		function generateColorPalette(){
+		  var palette = $("#colorWatchesContainer")
+			palette.empty()
+		  window.colors = 
+			  [
+				'#000', '#444', '#222', 
+				'#fff', '#999',
+				'#00f', '#05f', '#09f', '#f0f', 
+				'#fcf', '#808', '#f7f', 
+				'#f00', '#f70', '#f90', '#fcc', 
+				'#f40', '#ff0',
+				'#090', '#0f0' 
+			  ]
+		  // MAKE THE COLOR PICKER
+		  $.each(colors,function(i,e){  
+			var colorWatch = 
+			$('<a/>')
+			.attr('href','#') 
+			.attr('title',colors[i])
+			.attr('idx',i)
+			.addClass('color_select')
+			.css({
+			  display:'inline-block',
+			  width: 50,
+			  height: 50,
+			  backgroundColor: colors[i]
+			})
+			.appendTo(palette)    
+		  })
+
+		  $(document)
+		  .delegate('.color_select','click',function(e){
+			e.preventDefault()
+			
+			$('.color_select').removeClass('selected')
+			$(this).addClass('selected')
+			
+			//alert($(this).css('background-color')+' / '+$(this).attr('title'))
+		  })		
+	}
+	
+	/*
+		ENTITIES -- begin
+	*/
+	// BEHAVIOURS
+	 function generateBehaviourInputs(){
+
+		  window.behaviours = {
+			  bounceHorizontally: {lbl:'Bounce when out of horizontal limits',idTrue:'Yes',idFalse:'No','value':true},
+			  bounceVertically: {lbl:'Bounce when out of vertical limits',idTrue:'Yes',idFalse:'No','value':true},
+			  outOfHorizontalBoundaryRemove: {lbl:'Remove when out of horizontal limits',idTrue:'Yes',idFalse:'No','value':true},
+			  outOfVerticalBoundaryRemove: {lbl:'Remove when out of vertical limits',idTrue:'Yes',idFalse:'No','value':true},
+			  collideWithPaddleRemove: {lbl:'Remove when collide with paddle',idTrue:'Yes',idFalse:'No','value':true},// remove this on collide with paddle 
+			  collideWithPaddleBounce: {lbl:'Bounce when collide with paddle',idTrue:'Yes',idFalse:'No','value':true},
+			  BounceBallVertically: {lbl:'Bounce ball vertically',idTrue:'Yes',idFalse:'No','value':true},
+			  BounceBallHorizontally: {lbl:'Bounce ball horizontally',idTrue:'Yes',idFalse:'No','value':true},
+			  collideBallRemoveBall: {lbl:'Remove ball when collide with it',idTrue:'Yes',idFalse:'No','value':true},// remove ball on collide
+			  collideBallAttacksBall:{lbl:'Attack ball when collide with it',idTrue:'Yes',idFalse:'No','value':true},// on collision the sprite attacks the ball that loses energy
+			  collideBallLoseEnergy: {lbl:'Lose energy when collide with ball',idTrue:'Yes',idFalse:'No','value':true},
+			  collidePaddleLoseEnergy:{lbl:'Lose energy when collide with paddle',idTrue:'Yes',idFalse:'No','value':true}
+		  }
+
+		  //console.clear()
+		  // GENERATE BEHAVIOURS INPUTS IN THE 5th TAB
+		  $('#ent-ed-tabs-5')
+		  .html(null)
+		  
+		  $.each(behaviours,function(i,e){
+
+			//console.log(i+' '+e.value)
+
+			var label =
+			$('<label/>')
+			.text(e.lbl)
+
+			var input1 =
+			$('<input/>')
+			.attr('type','radio')
+			.attr('id',i+e.idTrue)  
+			.attr('name',i)
+			.val(true)
+
+			var label1 =
+			$('<label/>')
+			.attr('for',i+e.idTrue)  
+			.text(e.idTrue)
+
+			var input2 =
+			$('<input/>')
+			.attr('type','radio')
+			.attr('id',i+e.idFalse)  
+			.attr('name',i)
+			.val(false)
+
+			var label2 =
+			$('<label/>')
+			.attr('for',i+e.idFalse)  
+			.text(e.idFalse)
+
+			$('<span/>')
+			.addClass('btnSet')
+			.appendTo('#ent-ed-tabs-5')  
+			
+			label
+			.appendTo('#ent-ed-tabs-5 .btnSet:last')  
+
+			input1
+			.appendTo('#ent-ed-tabs-5 .btnSet:last')  
+			label1
+			.appendTo('#ent-ed-tabs-5 .btnSet:last')  
+
+			input2
+			.appendTo('#ent-ed-tabs-5 .btnSet:last')  
+			label2
+			.appendTo('#ent-ed-tabs-5 .btnSet:last')  
+
+			$('#ent-ed-tabs-5')
+			.append('<br/>')
+
+		  })
+		  
+		  $( ".btnSet" ).controlgroup();
+		  
+		}// function
+	
+	
+	// IDENTITY
+	function generate_entityTypeSelect(){
+		var type_options = {
+		  enemy:'enemy',
+		  graphic:'graphic',
+		  powerup:'powerup',
+		  ball:'ball',
+		  paddle:'paddle'  
+		}
+
+		var options_str;
+
+		$.each(type_options, function(i,e){
+		  options_str += '<option id="'+i+'" value="'+e+'">'
+		  options_str +=  e
+		  options_str += '</option>'
+		  
+		})
+
+		var entityTypeSelect = 
+			$('<select/>')
+			.attr('id','entity_type')
+			.attr('name','type')
+			.html(options_str)
+
+		$('#entity_type')
+		.replaceWith(entityTypeSelect)
+	}
+	
+	// POSITIONS AND MOVEMENTS
+	$(document)
+	.delegate('#entity_path','click',function(e){
+	  e.preventDefault()
+	  $('#entities_paths_selector').remove()
+	  var entities_paths_selector = 
+	  $('<div/>')
+	  .attr('id','entities_paths_selector')
+	  .insertAfter('#entity_path')
+	  .load('./paths_editor/ #paths_list_container #paths_list',function(e){
+		  var closeBtn = 
+		  $('<a/>') 
+		  .attr('id','closeEntityPathSelector') 
+		  .text('close')		  
+		  entities_paths_selector
+		  .find('.delete_path')
+		  .remove()		
+		  entities_paths_selector
+		  .draggable()
+		  .append(closeBtn)
+	  })
+	})
+
+	$(document)
+	.delegate('#closeEntityPathSelector','click',function(e){
+	  e.preventDefault()
+	  $('#entities_paths_selector').remove()
+	})
+
+	$(document)
+	.delegate('#entities_paths_selector #paths_list .select_path','click',function(e){
+	  e.preventDefault()
+	  $('label[for="entity_path"] .path_thumb').remove()
+	  var img = $(this).children('img')
+	  $('#entity_path').val(img.attr('title'))
+	  img
+	  .addClass('path_thumb')
+	  .appendTo('label[for="entity_path"]')
+	  $('#entities_paths_selector').remove()
+	})
+	
+	// ANIMATIONS
+	
+	// GENERATE SPRITES PLACEHOLDERS INDICATING up,down,left,right,appear,disappear in the 4th tab
+	function generateEntitiesAnimationsInputs(){ 
+	  var spriteAnimations  =
+	  {
+		UP: {x: 50, y: 0}, 
+		LEFT: {x: 25, y: 25},
+		DEFAULT: {x: 50, y: 25},
+		RIGHT: {x: 75, y: 25},
+		DOWN: {x: 50, y: 50},
+		APPEAR: {x: 37.5, y: 75},
+		DISAPPEAR: {x: 62.5, y: 75}
+	  }
+	  
+	  $('#ent-ed-tabs-4').html(null)
+	  
+	  $('#animationsContainer img.sprite_thumb,#animationsContainer .remove_animation,#entity_witness')
+	  .remove()
+	  
+	  
+	  
+	  $('<div/>')
+	  .attr('id','animationsContainer')
+	  .css({ 
+		  position: 'absolute',
+		  display: 'block',
+		  top: 1.5+'em',
+		  left: 0,
+		  width: 100+'%',
+		  height: 700+'px',
+		  backgroundColor: '#ccc' 
+	  })
+	  .appendTo('#ent-ed-tabs-4')
+	  
+	  $.each(spriteAnimations,function(i,e){
+		var input = 
+			$('<input/>')
+			.attr('type','text')
+			.attr('id',i)
+			.attr('name',i)// INPUT
+		var a = 
+			$('<a/>')
+			.attr('href','#')			
+			.html('&times;')			
+			.addClass('remove_animation')// INPUT
+		var label = 
+			$('<label/>')      
+			.attr('for',i)
+			.text(i)// LABEL
+		var div = 
+			$('<div/>')      
+			.attr('id','div'+i)
+			.css({
+			  position:'absolute',
+			  top: e.y+'%',
+			  left: e.x+'%'
+			})// CONTAINER
+			
+		 div
+		 .append(label)
+		 .append(input)
+		 .append(a)
+		 .appendTo('#animationsContainer') // INSERT LABEL, INPUT TO DOM
+	  })
+	}
+	
+	$(document)
+	.delegate('#animationsContainer input','click',function(e){
+	  e.preventDefault()  
+    $(this).parent('div').addClass('selectedAnimation')  
+	  $('#entities_sprites_list_container').remove()
+	  var entities_sprites_list_container = 
+	  $('<div/>')
+	  .attr('id','entities_sprites_list_container')
+	  .appendTo('#animationsContainer')
+	  .load('./sprites_editor/ #sprites_list_container #sprites_list',function(e){
+      // CHANGE DUPLICATE CONTAINER ID
+      $('#entities_sprites_list_container #sprites_list')
+        .attr('id','entities_sprites_list')
+      // REMOVE delete btns
+      $('#entities_sprites_list .delete_sprite')
+        .remove()
+		  var closeBtn = 
+		  $('<a/>') 
+		  .attr('id','closeEntitySpritesSelector') 
+		  .text('close')      
+		  entities_sprites_list_container
+		  .find('.delete_path')
+		  .remove()      
+		  entities_sprites_list_container
+      .resizable()
+		  .draggable()      
+		  .append(closeBtn)
+	  })
+	})
+	// ENTITY EDITOR
+	$(document)
+	  .delegate('#entities_sprites_list_container #entities_sprites_list .select_sprite','click',function(e){
+	  e.preventDefault()
+	  var label = $('.selectedAnimation label'),
+		  input = $('.selectedAnimation input')  
+	  label.children('img').remove()  
+	  var img = $(this).children('img')	 
+	  img
+		.addClass('sprite_thumb')
+		.attr('id','im'+Date.now())
+		.appendTo(label)
+		
+	  input.val($(this).children('.spriteLbl').text())
+	  $('.selectedAnimation').removeClass('selectedAnimation')
+	  $('#entities_sprites_list_container').remove()
+	  
+	  // INIT / UPDATE ENTITY PREVIEW
+	  spawnEntityPreview()
+	})
+	
+	$(document)
+	.delegate('#closeEntitySpritesSelector','click',function(e){
+	  e.preventDefault()
+	  $('.selectedAnimation').removeClass('selectedAnimation')
+	  $('#entities_sprites_list_container').remove()
+	})
+	
+	/*
+	$(document)
+	.delegate('#entity_x,#entity_y','change',function(i,e){
+	   spawnEntityPreview()
+	})
+	*/
+	
+	// EXPORT AN ENTITY TO A JSON FILE
+	$(document).delegate('form#ent_ed_frm', 'submit', function(event) {
+	  event.preventDefault();
+	 
+	  /*
+		GENERATE A THUMBNAIL OF THE ENTITY
+		.game_assets/entities/entityName.png
+		will be used by:
+			stages editor
+			levels editor					
+	  */
+	  entity_screenshot()
+	  
+	  var json = $('form#ent_ed_frm')
+	  .serializeObject()  
+	
+		//console.clear()
+		console.log('submit: \r\n'+json)
+	
+	  $.ajax({
+		  type : "POST",
+		  async: true,
+		  url : "export_json_file.php",
+		  data : {json:JSON.stringify(json)}
+	  })
+	  .done(function(response){
+		  console.log(response)
+		  
+		  var jsonObj = JSON.parse(response)
+		 //alert( jsonObj.type+':\r\n'+jsonObj.msg  )
+		 dialogNotify(jsonObj.type+':\r\n'+jsonObj.msg)
+  
+			load_entities_list()
+		  
+	  })  
+	})
+	
+	function generate_entityPathEndSelect(){
+		var select_options = {
+		  loop:'loop',
+		  reverseLoop:'reverse loop',
+		  stop:'stop',		   
+		}
+		var options_str;
+		$.each(select_options, function(i,e){
+		  options_str += '<option id="'+i+'" value="'+e+'">'
+		  options_str +=  e
+		  options_str += '</option>'		  
+		})
+		var select = 
+			$('<select/>')
+			.attr('id','entity_pathEnd')
+			.attr('name','pathEnd')
+			.html(options_str)
+
+		$('#entity_pathEnd')
+		.replaceWith(select)
+	}
+	
+	
+	 function spawnEntityPreview(){
+	  
+	  $('#entity_witness')
+	  .remove()
+	  
+	  if( $('#divDEFAULT').find('.sprite_thumb').length ==0 ){
+		return true
+	  }
+	  
+	  var x = $('#entity_x'),
+		  y = $('#entity_y'),
+		  dx = $('#entity_dx').val(),
+		  dy = $('#entity_dy').val()
+
+	  var preview_div = $('#entity_stage_position_preview')
+
+	  var divDEFAULTClone = 
+		  $('#divDEFAULT')
+		  .clone(true,true)
+		  .find('.sprite_thumb')
+
+	  $('<div/>')
+	  .attr('id','entity_witness')
+	  .css({
+		position: 'absolute',
+		top: y.val()+'px',
+		left: x.val()+'px',
+		width: divDEFAULTClone.width(),
+		height: divDEFAULTClone.width()
+	  })
+	  .append(divDEFAULTClone)
+	  .appendTo( preview_div )
+	  .draggable({
+		drag: function( event, ui ) {
+		  console.log(ui.position.left)
+		  x.val(parseInt(ui.position.left))
+		  y.val(parseInt(ui.position.top))
+		}
+	  })
+	}
+	
+	
+	/*
+		LOAD AN ENTITY INTO THE ENTITY EDITOR
+	*/
+	$(document).delegate('#entities_list_container a.select_entity', 'click', function(e) {
+		e.preventDefault()
+		
+		$.getJSON( $(this).attr('href') )
+		.done(function(json){  
+		   // IDENTITY
+		  $('#entity_name').val(json.name)
+		  $('#entity_type').val(json.type)			
+		  $('#entity_energy').val(json.energy)			
+		  $('#entity_strength').val(json.strength)
+		  $('#entity_description').val(json.description)
+
+		  // POSITIONS & MOVEMENTS
+		  $('#entity_x').val(json.x)
+		  $('#entity_y').val(json.y)			
+		  $('#entity_dx').val(json.dx)			
+		  $('#entity_dy').val(json.dy)
+		  $('#entity_path').val(json.path)
+		  $('#entity_pathEnd').val(json.pathEnd)
+		  $('#entity_pathStep').val(json.pathStep)			
+		  $('#entity_pathIdx').val(json.pathIdx)			
+
+		  // ANIMATIONS
+		  $('#DEFAULT').val(json.DEFAULT)  
+		  $('#UP').val(json.UP)
+		  $('#RIGHT').val(json.RIGHT)			
+		  $('#DOWN').val(json.DOWN)			
+		  $('#LEFT').val(json.LEFT)
+		  $('#APPEAR').val(json.APPEAR)
+		  $('#DISAPPEAR').val(json.DISAPPEAR)			
+
+		  // ADD THE SPRITES' THUMBNAILS INTO LABELS
+		  var animations = ['DEFAULT','UP','RIGHT','DOWN','LEFT','APPEAR','DISAPPEAR']
+		  $('.sprite_thumb').remove() 
+		  $.each(animations,function(i,e){
+			
+			if( json[e] !='' ){
+			
+			  var asset_dir = destination_dir.sprites//$('#sprt_ed_frm #destination_dir').val()                    
+			  var src = asset_dir+ '/' + $('#'+e).val() + '.png'+'?t='+Date.now()          
+			  var lbl = $('label[for="'+e+'"]')
+
+			 // console.log('lbl: ' +lbl.attr('for')+'  i: '+i+' e: '+e)
+
+			  var img =
+			  $('<img/>')
+			  .attr('src',src)
+			  .addClass('sprite_thumb')
+			  .attr('id','im'+Date.now())
+			  .appendTo(lbl)
+			
+			}
+			
+		  })
+		  
+		  spawnEntityPreview()
+
+		  // BEHAVIOURS 
+		  var listBehaviours = []
+		  
+		  $.each(behaviours,function(i,e){
+			listBehaviours.push(i)
+			//console.log('listBehaviours:'+i+' '+e)
+		  })
+
+		  $.each( json, function(i,e){
+			
+			var keys = Object.keys(obj)
+			var keyName = i    
+			
+		   //console.log('keyName:'+keyName)
+		   //console.log('IS IN ARRAY'+$.inArray(i, listBehaviours)+' e:'+e)
+			  if( $.inArray(keyName, listBehaviours) > -1 ){
+				
+			   var checkedRadio = keyName 
+				   checkedRadio += (e == false)?'No':'Yes'   
+				 //console.log('checkedRadio:'+checkedRadio)
+				
+				$('#'+checkedRadio).trigger('click')                
+				//$('#bounceHorizontallyYes').trigger('click')                
+			  }          
+		  })
+			
+		// NOTIFY OBJET LOADED
+		var msg = 'entity '+json.name+' loaded'					
+		dialogNotify(msg)					
+				
+			
+		})// DONE
+	})
+/*
+    LOAD AN ENTITY INTO THE ENTITY EDITOR end
+*/
+
+function load_entities_list(){
+	// REFRESH ENTITIES LIST
+	$('#entities_list_container')
+	.load('./entities_editor/ #entities_list_container .entities_list',function(e){
+		//console.log(e)
+	})
+}
+
+$(document).delegate('#entities_list_container .entities_list a.delete_entity', 'click', function(e) {
+  e.preventDefault()
+  $.ajax({
+    method: 'POST',
+    url: 'deleteFile.php',
+    asyn: true,
+    data: {fileUrl: $(this).attr('href')}
+
+  })
+    .done(function(response){
+    var jsonObj = JSON.parse(response)
+    dialogNotify(jsonObj.type+':\r\n'+jsonObj.msg)
+    load_entities_list()
+  })
+})
+
+$(document).delegate('#reset_entities_form', 'click', function(e) {
+	e.preventDefault()
+	$('#ent_ed_frm input[type="text"],#ent_ed_frm textarea').val(null)
+	$('#ent_ed_frm input.destination_dir').val( destination_dir.entities)
+	generateEntitiesAnimationsInputs()	
+	generate_entityPathEndSelect()	
+	generate_entityTypeSelect()
+	generateBehaviourInputs()
+})
+
+
+/*
+  ENTITY: REMOVE ANIMATION
+*/
+$(document)
+.delegate('.remove_animation','click',function(e){
+  e.preventDefault()
+  var parent = $(this).parent()
+      parent.find('input').val(null)
+      parent.find('.sprite_thumb').remove()
+})
+
+
+		
+	</script>
+	
+	</head>
+	<body id='body' class='portrait'>
+	<canvas id='snapshot_canvas'></canvas>
+	<!-- <div id='loader'> -->
+		<!-- <div  class='loader'></div> -->
+	<!-- </div> -->
+		<button id='sprites_editor_btn'>sprite editor</button>		
+		<button id='paths_editor_btn'>paths editor</button>
+		<button id='brickwalls_editor_btn'>brickwalls editor</button>
+		<button id='entities_editor_btn'>entities editor</button>
+		<button id='stages_editor_btn'>stages editor</button>
+		
+		<div id='minimized_windows'></div>
+		<link href='paths_editor/paths_editor.css'  type="text/css" rel="stylesheet" /> 
+		<link href='sprites_editor/sprites_editor.css'  type="text/css" rel="stylesheet" /> 
+	</body>
+</html> 

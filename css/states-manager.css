@@ -1,0 +1,204 @@
+/*
+	CSS FOR STATES DIALOG
+*/
+
+.statesList {
+    
+    display: flex
+}
+
+.removeStateBtn{
+  line-height: 2em;
+}
+
+.statesList>li { 
+    float: left;    
+    height: 600px;
+    width: 350px;    
+    display: block;
+    border: 1px #000 solid;
+    background-color: #aaa;
+}
+
+.state form{
+ width: 350px !important;
+ white-space: initial !important;
+}
+
+.stateHeader{  
+  height: 2em;  
+  display: block;  
+  padding-top: 1em;
+  cursor: move;
+}
+
+.stateIndex{
+  position: absolute; 
+  margin: -1em;
+  width: 350px;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+}
+
+.stateHeader .ui-spinner{
+  width: 6em;
+  height: 1.8em; 
+  display: inline-flex;
+  float: right;
+}
+
+.stateHeader label{  
+  line-height: 1em;
+  width: 5.2em;
+  font-size: 0.8em;
+  overflow: visible;
+  position: absolute;
+  margin: -1em 0em 0 1.3em;
+}
+
+.stateHeader label .seconds{
+  display: inline-flex !important;   
+  width: 7em;
+  color: #444;
+  background-color: yellowgreen;
+}
+
+.stateAttributeRow{
+  display: block;
+  clear: both;
+  width: 100% !important;  
+  float: none !important; 
+  /*
+  background: #fff linear-gradient(to left, transparent, rgba(255,128,0,0), rgba(255,128,0,0), rgba(255,128,0,1));
+  border: #f90 solid 1px;
+  color: #f90*/
+  padding-bottom: 1em
+}
+
+.stateAttributeRow:nth-child(odd){background-color: #999}
+.stateAttributeRow:nth-child(even){background-color: #888;}
+
+.stateAttributeRow:after{
+  content:'P';
+  font-size: 0.6em;
+  background-color: #09f;
+  margin: 0.25em;
+  width: 1.25em;
+  text-align: center;  
+  border-radius: 0.5em;
+  border: 1px solid #000;
+  color: #fff;
+  float: left; 
+  vertical-align: middle;
+  left: calc(0px + 1em);  
+  
+}
+
+/*
+.stateAttributeRow.action{
+  background: #fff linear-gradient(to left, transparent, rgba(0,255,0,0), rgba(0,255,0,0), rgba(0,255,0,1));
+  border: #0f0 solid 1px;
+  color: #0f0
+}
+*/
+
+.stateAttributeRow.action:after{
+  content:'A';
+  background-color: #f00;
+  margin: 0.25em;
+  width: 1.25em;
+  text-align: center; 
+  border: 1px solid #000;  
+}
+
+.stateAttributeRow label,
+.stateAttributeRow > input,
+.stateAttributeRow .ui-spinner{  
+  margin: 0; 
+  display: inline-block;
+  width: 40%;
+  max-width: 40%
+}
+
+.stateAttributeRow > input{
+  cursor: pointer
+}
+
+.stateAttributeRow .btnSet{  
+  width: 95%;  
+}
+
+.stateAttributeRow .btnSet > label{    
+  display: inline-block;
+  float: left;
+  max-width: 70%;
+  font-size: 0.9em;
+  vertical-align: middle !important;
+}
+
+.stateAttributeRow .btnSet > .ui-controlgroup-item{
+  float: right;
+  width: 12%; 
+  /*! height: 1em; */
+  padding: 0;
+  clear: none;
+  font-size: 0.6em;
+}
+
+
+.stateAttributeRow label{  
+  margin-left: 1em
+}
+
+.stateAttributeRow label .path_thumb{
+	height: 200px !important;
+	float: right
+}
+
+.addStateAttributeBtn,
+.addStateActionBtn{
+  text-decoration: none;
+  border: 1px solid #000;
+  border-radius: 0.25em;
+  padding: 0.25em;
+  font-size: 0.8em;
+  /*! float: right; 
+  margin-left: 1em; 
+  margin-right: 1em; */
+}
+
+.addStateAttributeBtn{ 
+  margin-left: 1.5em; 
+  margin-right: 0.5em;
+  background-color: #09f;  
+}
+
+.addStateActionBtn{ 
+  margin-left: 1.5em; 
+  margin-right: 0.5em;
+  background-color: #f00;  
+}
+
+
+.stateSelectorList li{
+  list-style: none;
+  display: inline-block; 
+  margin: 1px;
+  background-color: #bbb;
+  border: 2px outset #999
+}
+
+.stateSelectorList a{
+  text-decoration: none;
+  display: block;
+  padding: 0.5em;
+}
+
+.stateSelectorList a:hover{
+ background-color: #ffc
+}
+
+.deleteAttribute{
+	float: left
+}

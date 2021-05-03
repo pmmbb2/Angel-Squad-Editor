@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "angel-M.angelo-push-portal.sprt",
+    "src": "game_assets/images/angel-M.angelo-push-portal-320x67.png?t=1586645181",
+    "width": 80,
+    "height": 67,
+    "positions": [[0,0],[80,0],[160,0],[240,0]],
+    "frame": 0,
+    "frameMax": 3,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

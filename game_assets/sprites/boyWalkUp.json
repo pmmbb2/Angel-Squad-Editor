@@ -1,0 +1,11 @@
+{
+    "name": "boyWalkUp",
+    "src": "game_assets/images/boy-spritesheet.png",
+    "width": 20.5,
+    "height": 24,
+    "positions": [[0,24],[20.5,24],[41,24],[61.5,24]],
+    "frame": 0,
+    "frameMax": 3,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

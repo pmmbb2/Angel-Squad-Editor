@@ -1,0 +1,13 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "boat-64x96.sprt",
+    "src": "game_assets/images/rescue-boat.png?t=1609471742",
+    "width": 64,
+    "height": 96,
+    "positions": [[0,0],[0,0]],
+    "frame": 0,
+    "frameMax": 1,
+    "frameTicker": 0,
+    "nextFrameAt": 12,
+    "hitboxes": ""
+}

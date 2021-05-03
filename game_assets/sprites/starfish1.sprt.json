@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "starfish1.sprt",
+    "src": "game_assets/images/starfish-1.png?t=1588050489",
+    "width": 44,
+    "height": 44,
+    "positions": [[0,0],[0,0]],
+    "frame": 0,
+    "frameMax": 1,
+    "frameTicker": 0,
+    "nextFrameAt": 12
+}

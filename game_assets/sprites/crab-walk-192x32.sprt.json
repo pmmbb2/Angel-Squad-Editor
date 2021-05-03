@@ -1,0 +1,12 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "crab-walk-192x32.sprt",
+    "src": "game_assets/images/crab-walk-192x32.png?t=1587424340",
+    "width": 48,
+    "height": 48,
+    "positions": [[0,0],[48,0],[96,0],[144,0]],
+    "frame": 0,
+    "frameMax": 3,
+    "frameTicker": 0,
+    "nextFrameAt": 6
+}

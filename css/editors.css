@@ -1,0 +1,334 @@
+/*
+	RULES COMMON TO ALL EDITORS
+
+*/
+
+textarea{
+	border-color: #999
+}
+
+#snapshot_canvas{
+	position: absolute;
+	top: -100%;	
+}		
+
+  .delete_sprite,
+  .delete_path, 
+  .delete_brickwall,
+  .delete_entity,
+  .delete_stage,
+.delete_campaign{
+	  float: right;
+	  display: inline-block;
+	  width: 2em;
+	  height: 2em;
+	  background-color: red;
+	  text-align: center;
+	  text-decoration: none;
+	  line-height: 2em;
+	  color: #fff !important;
+	}
+	
+  .delete_sprite:hover,
+  .delete_path:hover, 
+  .delete_brickwall:hover,
+  .delete_entity:hover,
+  .delete_stage:hover,
+  .delete_campaign:hover{
+		  background-color: magenta;
+			color: #fff !important;
+		  /*border: thin crimson solid;*/
+			vertical-align: middle;
+  }
+  
+  .delete_path,   
+  .delete_entity,
+  .delete_stage{
+		/*! position: absolute; */
+		/*! margin-left: 200px; */
+		/*! float: none; */
+  }
+
+
+.select_sprite{
+	height: 2em;
+	line-height: 2em;
+	display: inline-block;
+	
+}
+
+	
+
+.sprites_list li{
+  list-style: none;
+  /*! margin: 1em 0; */
+	/*! border: thin solid #000; */
+}
+
+
+.select_sprite{
+  min-width: 80%;	
+	border: thin #000 solid;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.2em;
+	width: 100%;
+	height: 100%
+}
+
+a.select_sprite:hover{
+	background-color: yellowgreen
+}
+
+
+#sprites_list li a span.spriteLbl{
+	line-height: 2em;
+	height: 2em;
+	/*! color: red; */
+	display: block;
+	/*! background-color: yellow */
+	font-weight: bold;
+}
+
+	
+.paths_list .jsonObjectDescription,
+.brickwalls_list .jsonObjectDescription,
+#entities_list_container .entities_list .jsonObjectDescription{
+	width: 33%;
+	display: inline-block;
+	background-color: #ccc;
+	padding: 1em;
+	vertical-align: top;	
+}	
+
+#entities_list_container .entities_list .jsonObjectDescription
+{
+	width: 20%;
+}
+
+
+.brickwalls_list .jsonObjectDescription
+{
+	width: 29%;
+}
+
+#stages_entities_list_container .jsonObjectDescription{
+	width: 28%;
+	overflow-y: auto;
+	display: inline-block;
+	height: 3em;
+	background-color: #bbb;
+}
+
+.paths_list .pathLbl,
+.brickwalls_list .BWLbl,
+#entities_list_container .entities_list .entityLbl,
+#entities_list_container .entities_list .entityThumb,
+#stages_entities_list_container .entities_list .entityLbl,
+#stages_entities_list_container .entities_list .entityThumb,
+#stages_list_container .stages_list .stageLbl,
+#stages_list_container .stages_list .stageThumb,
+.jsonObjectPathMode{
+	width: 30%;
+	display: inline-block;
+	background-color: #aaa;
+	padding: 0.5em;
+	vertical-align: top;
+	overflow: hidden
+}	
+
+#stages_list_container .stages_list .stageThumb{
+	width: 25%
+}
+
+.jsonObjectPathMode{
+	width: 5em;
+	display: block
+}
+
+#stages_entities_list_container .entities_list li,
+#stages_list_container .stages_list li{		
+	border-bottom: thin solid #444;	
+}	
+
+#stages_entities_list_container .entities_list li:nth-child(odd),
+#stages_list_container .stages_list li:nth-child(odd){ 		
+  background-color: #ccc;
+}
+
+#stages_entities_list_container .entities_list li:nth-child(even),
+#stages_list_container .stages_list li:nth-child(even){
+	background-color: #999;
+}
+
+#stages_entities_list_container .entities_list .entityThumb,
+#stages_list_container .stages_list .stageThumb{	
+	background-color: #ddd;	
+	/*border: thin solid #444*/
+}	
+
+#entities_list_container .entities_list .entityThumb,
+#stages_list_container .stages_list .stageThumb{
+	background-color: #ddd;
+	border: thin solid #444
+}
+
+#entities_list_container .entities_list .entityThumb img,
+#stages_list_container .stages_list .stageThumb img{
+	max-height: 100%;
+}
+
+#stages_list_container .stages_list .stageThumb img{
+	max-height: 100px;
+}
+
+input:active,
+textarea:active,
+input:focus,
+textarea:focus{background-color: yellowgreen !important;
+}	
+	
+.select_image{
+	max-width: 200px;
+	overflow-x: auto
+}	
+
+/*
+	REFRESH IMAGES LIST (sprites & brickwalls)
+*/
+.refreshImagesListBtn, #stage_ec_manager_refresh, #toggle_timeline_controls, #ECResetStartBtn, #toggleSprtImgSelectorBtn{
+  text-decoration :none;
+  padding: 0.5em;
+  font-variant: all-petite-caps; 
+  color: #09f !important;
+  display: inline-block;
+  border: thin #09f solid;
+  margin: 0.25em;
+   background-color: #ccc
+}
+
+.refreshImagesListBtn:hover, #stage_ec_manager_refresh:hover, #toggle_timeline_controls:hover, #ECResetStartBtn:hover,#toggleSprtImgSelectorBtn:hover
+{
+  background-color: #ffc
+}
+
+.refreshImagesListBtn::after, 
+#stage_ec_manager_refresh::after {
+  content: '\21ba';
+}
+
+#toggle_timeline_controls:after{
+	content: '\25d4'
+}
+
+#ECResetStartBtn:after{
+	content: '\25a3'
+}
+
+
+a.select_brickwall img{
+  	max-width: 100px
+}
+
+.paths_list	li{list-style: none}
+
+
+#closeStagePathSelector::after,
+#ECnoPathBtn::after,
+#BWnoPathBtn::after,
+.BWnoPathBtn::after,
+#BWnoBrickwallBtn:after,
+#noScrollingBtn:after,
+#noObjectiveBtn:after{
+	content: '\2716';
+	padding: 0.5em;	
+	width: 4em;	
+	color: #000;	
+
+}	
+
+label[for=scrollingScreens],
+label[for=objectives]{
+	float: left
+}
+
+
+#ECnoPathBtn,
+#BWnoPathBtn,
+#BWnoBrickwallBtn,
+.BWnoPathBtn,
+#noScrollingBtn,
+#noObjectiveBtn{
+	min-width: 50px;
+	background-color: #f90 !important;
+	text-align: center;
+  border: 2px outset #999;
+	cursor: pointer;
+	float: right;
+	text-decoration: none !important;
+}	
+
+
+.submit_reset{
+	position: absolute;
+	width: 100%;
+	height: 2em !important;
+	bottom: 0;
+	z-index: 4;
+	text-align: center;
+}
+
+
+
+#sprites_list_container,
+.popupSearchContainer{
+	height: 90%;
+    height: 300px;
+	/* width: 90%; */
+	overflow-y: auto;
+	overflow-x: hidden;
+	background-color: #999;
+}
+
+.search_form_container{
+    /* position: fixed */
+}
+
+/*
+  FILTERING SEARCH
+
+.filter{
+	line-height: 2em;
+  background-color: #fcc;
+	vertical-align: middle;
+  border: 1px outset #999;
+	padding: 0.25em;
+  margin-right: 0em !important;
+}
+
+.clearFilter{
+	text-decoration: none;
+	font-size: 1.5em;	
+	width: 1.5em;
+	text-align: center;
+	display: inline-block;
+	vertical-align: middle;
+	color:  #fcc !important;	
+	padding: 0em;
+	border: 1px solid #999;	
+  background-color: #000;
+	border-radius: 3em;
+  margin-left: 0em !important;
+	font-weight: bold;
+}
+*/
+
+/*
+	LIVE EDIT --begin
+*/
+
+/* TEST IFRAME CSS to RESIZE WITH THE DIALOG*/
+iframe#gameTestFrm {
+    width: 100%;
+    height: 100%;
+}

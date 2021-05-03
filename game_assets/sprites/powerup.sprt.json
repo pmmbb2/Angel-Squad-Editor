@@ -1,0 +1,13 @@
+{
+    "destination_dir": "game_assets/sprites",
+    "name": "powerup.sprt",
+    "src": "game_assets/images/powerup.png?t=1614271798",
+    "width": 128,
+    "height": 78,
+    "positions": [[0,0],[128,0]],
+    "frame": 0,
+    "frameMax": 1,
+    "frameTicker": 0,
+    "nextFrameAt": 48,
+    "hitboxes": ""
+}

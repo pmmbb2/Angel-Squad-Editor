@@ -1,0 +1,166 @@
+
+/*
+	CAMPAIGN EDITOR	
+*/
+
+
+#cmp_ed_wrapper{
+	width: 100%;
+	position: absolute;
+	right: 0;
+	display: block;
+	height: 90%;
+	background-color: #000;
+	/*overflow: hidden*/
+}
+
+#cmp_ed_wrapper > div{
+	height: 95%;
+	background-color: #444;
+}
+#cmp-ed-tabs form div label,
+#cmp-ed-tabs form div input,
+#cmp-ed-tabs form div textarea{
+	width: 48%;
+	display: inline-block;
+}
+
+#cmp-ed-tabs form > div:not(.submit_reset) {
+	background-color: #666;
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	width: 96%;
+	height: 80%;
+	overflow-y: auto;
+}
+
+#cmp-ed-tabs form > div ul:not(.campaigns_list){
+	height: 24em;
+	overflow: hidden;
+	display: block;
+	overflow-y: auto;
+	width: 50%;
+}
+
+#cmp-ed-tabs form > div div ul:not(.campaigns_list){
+	overflow-y: auto;
+	display: block;
+	width: 50%;
+	float: right;
+	top: 6em;
+	right: 0;
+}
+
+#cmp-ed-tabs form img{
+	max-width: 100px;
+	max-height: 100px;
+}
+
+#campaign_inputs {
+	background-color: #888;
+	height: 26em;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+.assetsList{
+	/*! position: absolute; */
+	width: 34%;
+	height: 100%;
+	top: 6em;
+	/*! left: 0; */
+	background: #555;
+}
+
+.assetsList li,
+#cmp-ed-tabs #cmp_ed_frm div ul li{	
+	border-bottom: 1px solid #000;
+	background: #999;
+}
+
+
+#cmp-ed-tabs ul li a:not(.delete_campaign){
+	text-decoration: none;
+	cursor: move;
+	display: block;
+}
+
+#cmp-ed-tabs-7 ul li a{
+	display: inline !important
+}
+
+#cmp_ed_frm ul.ui-tabs-nav li a,
+#cmp-ed-tabs-8 ul li a
+{
+	cursor: pointer !important;
+}
+
+#cmp_ed_frm div ul li,
+#cmp_ed_frm div ul li a,
+#cmp_ed_frm div ul li a span
+{	
+	background-color: none !important;
+}
+
+.sortable-placeholder{
+	background-color: #ffc !important;	
+}
+
+.campaigns_list li a:not(.delete_campaign){
+	width: 60%;
+	float: left;
+
+}
+
+.campaigns_list li a.export_campaign {
+    line-height: 2;
+    width: 20% !important;
+    background-color: #777;
+    border: 2px inset #fff;
+    color: #fff;
+}
+
+	
+.campaigns_list li {
+	margin: 0.5em !important;
+	display: inline-block;
+	min-height: 2em;
+	width: 100%;
+	background-color: #fff;	
+}
+
+.campaigns_list li a:not(.delete_campaign):hover{
+	background-color: #888
+}
+
+.campaigns_list li a.export_campaign:hover {    
+    background-color: #666;    
+}
+
+
+.campaigns_list li a:not(.delete_campaign) span{
+	padding: 0.5em;
+	margin: 0.5em;
+	/* background-color: #999; */
+	display: inline-block;
+}
+
+.campaigns_list li a:not(.delete_campaign) span.description{
+	width: 33%
+}
+
+/* sound items */
+#cmp-ed-tabs-7 ul li {
+	line-height: 2.5em;
+	cursor: move;
+}
+
+#cmp-ed-tabs-7 ul li a{
+	cursor: pointer !important;
+}
+
+#cmp-ed-tabs #cmp_ed_frm > div:not(#cmp-ed-tabs-7) ul li a span{	
+	width: 33%;
+	display: inline-block;
+}
