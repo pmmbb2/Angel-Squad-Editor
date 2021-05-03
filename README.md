@@ -1,7 +1,7 @@
 # Angel Squad Editor
 
   ## Description
-  - Angel Squad Editor (ASE) is the content editor for the game Angel Squad (https://github.com/pmmbb2/AngelSquad---Android)
+  - Angel Squad Editor (ASE) is the content editor for the game Angel Squad (https://github.com/pmmbb2/Angel-Squad-Editor)
   - made with vanilla JS, html, css, jQuery, PHP
  
   ## Getting Started
@@ -11,11 +11,11 @@
   - place root folder in localhost folder 
     - WAMP: ./www/
     - ```
-      WAMP example: absolute path to wamp/www/pmmbb2-AngelSquadEditor/
+      WAMP example: absolute path to wamp/www/Angel-Squad-Editor/
       ```       
     - XAMPP: ./htdocs/
       ```
-      XAMPP example: absolute path to xamp/htdocs/pmmbb2-AngelSquadEditor/
+      XAMPP example: absolute path to xamp/htdocs/Angel-Squad-Editor/
       ```
       
   ## Editors
@@ -47,7 +47,7 @@
     - a campaign is a sequence of stages, that are unlocked along the progression of the player
     - a campaign contains references to all assets used in stages, sprites, paths, and other components
     - save campaign/export zip:
-      - creates campaign.zip in pmmbb2-AngelSquadEditor/campaign_zips/
+      - creates campaign.zip in Angel-Squad-Editor/campaign_zips/
       
     - add/replace campaign in Angel Squad:
       - unzip campaign.zip in Angel Squad root folder:
